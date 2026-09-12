@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bgs4ytnanrsbh" path="res://Assets/Animation/RunAnim/run5.png" id="5_4d7sh"]
 [ext_resource type="Script" uid="uid://cfovbdplf1tja" path="res://Scripts/Player/animated_sprite_2d.gd" id="10_nr8wp"]
 [ext_resource type="Script" uid="uid://dwi06wo2bs230" path="res://Scripts/Player/character_body_2d.gd" id="11_hqns4"]
+[ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="12_x0ka3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4bknk"]
 animations = [{
@@ -52,14 +53,48 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1c765"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.084
+spread = 20.689
+flatness = 0.07
+initial_velocity_min = 72.59
+initial_velocity_max = 153.23999
+angular_velocity_min = -103.92001
+angular_velocity_max = -81.65002
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -85.57
+linear_accel_max = -35.050003
+radial_accel_min = -14.430002
+radial_accel_max = -14.430002
+tangential_accel_min = -23.720001
+tangential_accel_max = 5.1499977
+damping_max = 11.856001
+color = Color(0.95, 0.494, 0.494, 1)
+
 [node name="Node2D" type="Node2D" unique_id=317326170]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1230276513]
 script = ExtResource("11_hqns4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2036340181]
-position = Vector2(128, 520)
-scale = Vector2(8, 8)
+position = Vector2(16, 128)
 sprite_frames = SubResource("SpriteFrames_4bknk")
 animation = &"Idle"
 script = ExtResource("10_nr8wp")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=337861889]
+position = Vector2(17, 139)
+rotation = 4.712301
+emitting = false
+amount = 50
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_1c765")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1818389869 groups=["Camera"]]
+position = Vector2(80, 72)
+script = ExtResource("12_x0ka3")
