@@ -73,6 +73,36 @@ tangential_accel_max = 5.1499977
 damping_max = 11.856001
 color = Color(0.95, 0.494, 0.494, 1)
 
+[sub_resource type="GDScript" id="GDScript_x0ka3"]
+script/source = "extends Button
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+func _pressed() -> void:
+	print(\"gold was clicked!\")
+	
+	disabled = false
+	
+	await get_tree().create_timer(3.0).timeout
+	
+	print(\"finished mining!\")
+	
+	$GoldIMG.visible = false
+	%Rock.visible = true
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0h7mo"]
+load_path = "res://.godot/imported/rock.png-e9f671b6738b467f2f24457f7a6bdd0c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nr8wp"]
+load_path = "res://.godot/imported/gold.png-76b8a138c52fadd55ac71f1a67d8f03c.ctex"
+
 [node name="Node2D" type="Node2D" unique_id=317326170]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1230276513]
@@ -95,6 +125,29 @@ trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_1c765")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1818389869 groups=["Camera"]]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1818389869]
 position = Vector2(80, 72)
 script = ExtResource("12_x0ka3")
+
+[node name="Gold" type="Button" parent="." unique_id=42940642]
+offset_left = 49.0
+offset_top = 112.0
+offset_right = 76.0
+offset_bottom = 142.0
+flat = true
+script = SubResource("GDScript_x0ka3")
+
+[node name="Timer" type="Timer" parent="Gold" unique_id=1634450212]
+wait_time = 3.0
+
+[node name="Rock" type="Sprite2D" parent="Gold" unique_id=1286338606]
+unique_name_in_owner = true
+visible = false
+position = Vector2(13.999997, 20)
+scale = Vector2(0.02684564, 0.029098362)
+texture = SubResource("CompressedTexture2D_0h7mo")
+
+[node name="GoldIMG" type="Sprite2D" parent="Gold" unique_id=51010637]
+position = Vector2(14, 15.375)
+scale = Vector2(0.060000002, 0.06317495)
+texture = SubResource("CompressedTexture2D_nr8wp")
