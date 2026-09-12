@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cyryhdc3i8p2q"]
+
+[ext_resource type="Texture2D" uid="uid://dvxkburhsn6a7" path="res://run1.png" id="1_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://cich8bv8t0stb" path="res://run2.png" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://dnx7ov8euwym0" path="res://run3.png" id="3_d21ai"]
+[ext_resource type="Texture2D" uid="uid://bju34u0led7ue" path="res://run4.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://bgs4ytnanrsbh" path="res://run5.png" id="5_4d7sh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4bknk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q6r6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kdubu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d21ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rj586")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4d7sh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=317326170]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2036340181]
+position = Vector2(128, 520)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_4bknk")
+frame = 4
+frame_progress = 0.80890584
