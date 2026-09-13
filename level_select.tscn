@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bprgm1aops74r"]
+
+[ext_resource type="Texture2D" uid="uid://bm1oqnmwapna2" path="res://Assets/Images/AurumDecayTitle2.png" id="1_il3u1"]
+[ext_resource type="Script" uid="uid://cqgaikes03n46" path="res://Scripts/Buttons/button.gd" id="2_vomi7"]
+
+[node name="LevelSelect" type="Node2D" unique_id=469398477]
+
+[node name="AurumDecayTitle2" type="Sprite2D" parent="." unique_id=73603578]
+position = Vector2(79, 71)
+scale = Vector2(0.2, 0.21072225)
+texture = ExtResource("1_il3u1")
+
+[node name="Button" type="Button" parent="." unique_id=1422871218]
+unique_name_in_owner = true
+offset_left = 54.0
+offset_top = 98.0
+offset_right = 100.0
+offset_bottom = 129.0
+text = "Start"
+script = ExtResource("2_vomi7")

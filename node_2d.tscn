@@ -73,6 +73,9 @@ tangential_accel_max = 5.1499977
 damping_max = 11.856001
 color = Color(0.95, 0.494, 0.494, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c765"]
+size = Vector2(6, 9.5)
+
 [sub_resource type="GDScript" id="GDScript_x0ka3"]
 script/source = "extends Button
 
@@ -103,7 +106,10 @@ load_path = "res://.godot/imported/rock.png-e9f671b6738b467f2f24457f7a6bdd0c.cte
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nr8wp"]
 load_path = "res://.godot/imported/gold.png-76b8a138c52fadd55ac71f1a67d8f03c.ctex"
 
-[node name="Node2D" type="Node2D" unique_id=317326170]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbi0q"]
+size = Vector2(3.4856527, 4.999997)
+
+[node name="test_level" type="Node2D" unique_id=317326170]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1230276513]
 script = ExtResource("11_hqns4")
@@ -118,14 +124,20 @@ script = ExtResource("10_nr8wp")
 position = Vector2(17, 139)
 rotation = 4.712301
 emitting = false
-amount = 50
+amount = 80
 lifetime = 1.9200000000000002
 explosiveness = 0.15
+trail_enabled = true
+trail_lifetime = 0.060000000000000005
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_1c765")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1818389869]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1137134469]
+position = Vector2(17, 138.75)
+shape = SubResource("RectangleShape2D_1c765")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1818389869 groups=["Camera"]]
 position = Vector2(80, 72)
 script = ExtResource("12_x0ka3")
 
@@ -151,3 +163,14 @@ texture = SubResource("CompressedTexture2D_0h7mo")
 position = Vector2(14, 15.375)
 scale = Vector2(0.060000002, 0.06317495)
 texture = SubResource("CompressedTexture2D_nr8wp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=813038780 groups=["Damagers"]]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=1541759827 groups=["Damagers"]]
+position = Vector2(36, 70)
+polygon = PackedVector2Array(6, 12, 16, 12, 11, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1399848331 groups=["Damagers"]]
+position = Vector2(47, 78.65695)
+scale = Vector2(1.721343, 1.4627813)
+shape = SubResource("RectangleShape2D_gbi0q")
