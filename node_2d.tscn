@@ -18,6 +18,73 @@
 [ext_resource type="Script" uid="uid://doqtlqkvupyou" path="res://Scripts/Buttons/gold_value_label.gd" id="18_k73cj"]
 [ext_resource type="Texture2D" uid="uid://q3kojgkveoks" path="res://Assets/Images/GoldRock-Tiles.png" id="19_rjqkl"]
 
+[sub_resource type="Gradient" id="Gradient_flf07"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.8156863, 0.34509805, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4bknk"]
+gradient = SubResource("Gradient_flf07")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1c765"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+inherit_velocity_ratio = -5.281
+spread = 69.31
+flatness = 0.07
+initial_velocity_min = 43.239998
+initial_velocity_max = 117.149994
+angular_velocity_min = -103.92001
+angular_velocity_max = -81.65002
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -85.57
+linear_accel_max = -35.050003
+radial_accel_min = -14.430002
+radial_accel_max = -14.430002
+tangential_accel_min = -23.720001
+tangential_accel_max = 5.1499977
+damping_max = 11.856001
+color_ramp = SubResource("GradientTexture1D_4bknk")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k73cj"]
+radius = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
+atlas = ExtResource("19_rjqkl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjqkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4d3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
+atlas = ExtResource("19_rjqkl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
+atlas = ExtResource("19_rjqkl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fs4d3"]
+animations = [{
+"frames": [{
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_7vxoj")
+}, {
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_ei405")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4bknk"]
 animations = [{
 "frames": [{
@@ -58,73 +125,71 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1c765"]
-lifetime_randomness = 0.1
-particle_flag_disable_z = true
-inherit_velocity_ratio = 0.084
-spread = 20.689
-flatness = 0.07
-initial_velocity_min = 72.59
-initial_velocity_max = 153.23999
-angular_velocity_min = -103.92001
-angular_velocity_max = -81.65002
-gravity = Vector3(0, 200, 0)
-linear_accel_min = -85.57
-linear_accel_max = -35.050003
-radial_accel_min = -14.430002
-radial_accel_max = -14.430002
-tangential_accel_min = -23.720001
-tangential_accel_max = 5.1499977
-damping_max = 11.856001
-color = Color(0.95, 0.494, 0.494, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c765"]
 size = Vector2(6, 9.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbi0q"]
 size = Vector2(3.4856527, 4.999997)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rjqkl"]
-radius = 44.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
-atlas = ExtResource("19_rjqkl")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1c765"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fs4d3")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
-atlas = ExtResource("19_rjqkl")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
-atlas = ExtResource("19_rjqkl")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0yseu"]
-animations = [{
-"frames": [{
-"duration": 9.0,
-"texture": SubResource("AtlasTexture_7vxoj")
-}, {
-"duration": 9.0,
-"texture": SubResource("AtlasTexture_ei405")
-}],
-"loop": 0,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="test_level" type="Node2D" unique_id=317326170]
+
+[node name="Gold2" type="Button" parent="." unique_id=1085904820 groups=["gold"]]
+offset_left = 70.0
+offset_top = 106.0
+offset_right = 97.0
+offset_bottom = 136.0
+focus_mode = 0
+flat = true
+script = ExtResource("13_d2bti")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold2" unique_id=2087942814]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_1c765")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gold2" unique_id=1362450031]
+visible = false
+layout_mode = 0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 21.0
+
+[node name="GoldVIMG" type="TextureRect" parent="Gold2/HBoxContainer" unique_id=1207442670]
+layout_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="Gold2/HBoxContainer" unique_id=714277218 groups=["GoldLabels"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_k73cj")
+text = "x Gold"
+script = ExtResource("18_k73cj")
+
+[node name="Timer" type="Timer" parent="Gold2" unique_id=453777716]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="Gold2" unique_id=1426269092]
+visible = false
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold2/Area2D" unique_id=2089273996]
+position = Vector2(15, 12)
+shape = SubResource("CircleShape2D_k73cj")
+
+[node name="Rock" type="AnimatedSprite2D" parent="Gold2" unique_id=1321013127]
+visible = false
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_rjqkl")
+
+[node name="GoldIMG" type="AnimatedSprite2D" parent="Gold2" unique_id=1407237283]
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_fs4d3")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1230276513]
 script = ExtResource("11_hqns4")
@@ -170,51 +235,5 @@ shape = SubResource("RectangleShape2D_gbi0q")
 [node name="GameStorage" type="Node" parent="." unique_id=598823207 groups=["GameStorage"]]
 script = ExtResource("13_flf07")
 
-[node name="Gold" type="Button" parent="." unique_id=367152625]
-offset_left = 68.0
-offset_top = 113.0
-offset_right = 95.0
-offset_bottom = 143.0
-focus_mode = 0
-flat = true
-script = ExtResource("13_d2bti")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Gold" unique_id=87879490]
-visible = false
-layout_mode = 0
-offset_left = -11.0
-offset_top = -19.0
-offset_right = 42.0
-offset_bottom = 21.0
-
-[node name="GoldVIMG" type="TextureRect" parent="Gold/HBoxContainer" unique_id=1901967822]
-layout_mode = 2
-
-[node name="GoldValueLabel" type="Label" parent="Gold/HBoxContainer" unique_id=741278814 groups=["GoldLabels"]]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("17_k73cj")
-text = "x Gold"
-script = ExtResource("18_k73cj")
-
-[node name="Timer" type="Timer" parent="Gold" unique_id=1942860593]
-wait_time = 3.0
-
-[node name="Area2D" type="Area2D" parent="Gold" unique_id=558018773]
-position = Vector2(0, 4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold/Area2D" unique_id=1693462965]
-position = Vector2(15, 12)
-shape = SubResource("CircleShape2D_rjqkl")
-
-[node name="Rock" type="AnimatedSprite2D" parent="Gold" unique_id=3081033]
-visible = false
-position = Vector2(15, 16)
-sprite_frames = SubResource("SpriteFrames_1c765")
-
-[node name="GoldIMG" type="AnimatedSprite2D" parent="Gold" unique_id=124770130]
-position = Vector2(15, 16)
-sprite_frames = SubResource("SpriteFrames_0yseu")
-frame_progress = 0.12594195
-
-[connection signal="body_entered" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Gold2/Area2D" to="Gold2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gold2/Area2D" to="Gold2" method="_on_area_2d_body_exited"]

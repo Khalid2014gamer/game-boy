@@ -53,6 +53,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_oju41"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.8156863, 0.34509805, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4bknk"]
+gradient = SubResource("Gradient_oju41")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h0wmm"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+inherit_velocity_ratio = -5.281
+spread = 69.31
+flatness = 0.07
+initial_velocity_min = 43.239998
+initial_velocity_max = 117.149994
+angular_velocity_min = -103.92001
+angular_velocity_max = -81.65002
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -85.57
+linear_accel_max = -35.050003
+radial_accel_min = -14.430002
+radial_accel_max = -14.430002
+tangential_accel_min = -23.720001
+tangential_accel_max = 5.1499977
+damping_max = 11.856001
+color_ramp = SubResource("GradientTexture1D_4bknk")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_te61h"]
 texture = ExtResource("2_a7x85")
 3:0/0 = 0
@@ -439,6 +466,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold6" unique_id=2108513853]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
+
 [node name="Gold4" type="Button" parent="." unique_id=1421585570 groups=["gold"]]
 offset_left = 58.0
 offset_top = -16.0
@@ -483,6 +522,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 [node name="GoldIMG" type="AnimatedSprite2D" parent="Gold4" unique_id=421216385]
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold4" unique_id=829827956]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
 
 [node name="Gold" type="Button" parent="." unique_id=1870224403 groups=["gold"]]
 offset_left = 246.0
@@ -529,6 +580,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold" unique_id=101750411]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
+
 [node name="Gold3" type="Button" parent="." unique_id=1522248747 groups=["gold"]]
 offset_left = 302.0
 offset_top = -15.0
@@ -574,6 +637,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold3" unique_id=1029101514]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
+
 [node name="Gold2" type="Button" parent="." unique_id=1563992493 groups=["gold"]]
 offset_left = 302.0
 offset_top = 81.0
@@ -618,6 +693,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 [node name="GoldIMG" type="AnimatedSprite2D" parent="Gold2" unique_id=915865629]
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold2" unique_id=1421355580]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=658275102]
 position = Vector2(132, 106)
@@ -711,6 +798,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold5" unique_id=355212684]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
+
 [node name="Gold7" type="Button" parent="." unique_id=372511585 groups=["gold"]]
 offset_left = -4.0
 offset_top = 130.0
@@ -755,6 +854,18 @@ sprite_frames = SubResource("SpriteFrames_1ghgu")
 [node name="GoldIMG" type="AnimatedSprite2D" parent="Gold7" unique_id=750806058]
 position = Vector2(15, 16)
 sprite_frames = SubResource("SpriteFrames_jajq3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Gold7" unique_id=979774399]
+position = Vector2(16, 19)
+rotation = -1.5708846
+emitting = false
+amount = 5
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_h0wmm")
 
 [node name="GameStorage" type="Node" parent="." unique_id=2012758996 groups=["GameStorage"]]
 script = ExtResource("12_oju41")

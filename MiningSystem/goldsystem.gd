@@ -13,7 +13,10 @@ func _pressed() -> void:
 	get_tree().get_nodes_in_group("GameStorage")[0]._on_gold_mined(1)
 	self.disabled = true
 	$GoldIMG.play("default")
+	$GPUParticles2D.emitting=true
 	await get_tree().create_timer(3.0).timeout
+	$GPUParticles2D.emitting = false
+	
 	print("finished mining!")
 	
 	emit_signal("gold", 1)
