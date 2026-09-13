@@ -12,6 +12,12 @@
 [ext_resource type="Script" uid="uid://cfovbdplf1tja" path="res://Scripts/Player/animated_sprite_2d.gd" id="10_nr8wp"]
 [ext_resource type="Script" uid="uid://dwi06wo2bs230" path="res://Scripts/Player/character_body_2d.gd" id="11_hqns4"]
 [ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="12_x0ka3"]
+[ext_resource type="Script" uid="uid://cmnyxbmnx1qpf" path="res://MiningSystem/goldsystem.gd" id="13_d2bti"]
+[ext_resource type="Script" uid="uid://ci0bxhcldsk1w" path="res://MiningSystem/game_storage.gd" id="13_flf07"]
+[ext_resource type="Texture2D" uid="uid://bg4xesl70g6w4" path="res://MiningSystem/rock.png" id="14_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://dg1bqqodgc3xf" path="res://MiningSystem/gold.png" id="15_flf07"]
+[ext_resource type="FontFile" uid="uid://c53ieiaclikr4" path="res://MiningSystem/Minecraft.ttf" id="17_k73cj"]
+[ext_resource type="Script" uid="uid://doqtlqkvupyou" path="res://Scripts/Buttons/gold_value_label.gd" id="18_k73cj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4bknk"]
 animations = [{
@@ -76,51 +82,24 @@ color = Color(0.95, 0.494, 0.494, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c765"]
 size = Vector2(6, 9.5)
 
-[sub_resource type="GDScript" id="GDScript_x0ka3"]
-script/source = "extends Button
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func _pressed() -> void:
-	print(\"gold was clicked!\")
-	
-	disabled = false
-	
-	await get_tree().create_timer(3.0).timeout
-	
-	print(\"finished mining!\")
-	
-	$GoldIMG.visible = false
-	%Rock.visible = true
-"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0h7mo"]
-load_path = "res://.godot/imported/rock.png-e9f671b6738b467f2f24457f7a6bdd0c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nr8wp"]
-load_path = "res://.godot/imported/gold.png-76b8a138c52fadd55ac71f1a67d8f03c.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbi0q"]
 size = Vector2(3.4856527, 4.999997)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjqkl"]
+radius = 44.0
+
 [node name="test_level" type="Node2D" unique_id=317326170]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1230276513]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1230276513]
 script = ExtResource("11_hqns4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2036340181]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2036340181]
 position = Vector2(16, 128)
 sprite_frames = SubResource("SpriteFrames_4bknk")
 animation = &"Idle"
 script = ExtResource("10_nr8wp")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=337861889]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=337861889]
 position = Vector2(17, 139)
 rotation = 4.712301
 emitting = false
@@ -133,36 +112,13 @@ trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_1c765")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1137134469]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1137134469]
 position = Vector2(17, 138.75)
 shape = SubResource("RectangleShape2D_1c765")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1818389869 groups=["Camera"]]
 position = Vector2(80, 72)
 script = ExtResource("12_x0ka3")
-
-[node name="Gold" type="Button" parent="." unique_id=42940642]
-offset_left = 49.0
-offset_top = 112.0
-offset_right = 76.0
-offset_bottom = 142.0
-flat = true
-script = SubResource("GDScript_x0ka3")
-
-[node name="Timer" type="Timer" parent="Gold" unique_id=1634450212]
-wait_time = 3.0
-
-[node name="Rock" type="Sprite2D" parent="Gold" unique_id=1286338606]
-unique_name_in_owner = true
-visible = false
-position = Vector2(13.999997, 20)
-scale = Vector2(0.02684564, 0.029098362)
-texture = SubResource("CompressedTexture2D_0h7mo")
-
-[node name="GoldIMG" type="Sprite2D" parent="Gold" unique_id=51010637]
-position = Vector2(14, 15.375)
-scale = Vector2(0.060000002, 0.06317495)
-texture = SubResource("CompressedTexture2D_nr8wp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=813038780 groups=["Damagers"]]
 
@@ -174,3 +130,57 @@ polygon = PackedVector2Array(6, 12, 16, 12, 11, 4)
 position = Vector2(47, 78.65695)
 scale = Vector2(1.721343, 1.4627813)
 shape = SubResource("RectangleShape2D_gbi0q")
+
+[node name="GameStorage" type="Node" parent="." unique_id=598823207]
+script = ExtResource("13_flf07")
+
+[node name="Gold" type="Button" parent="." unique_id=367152625]
+offset_left = 68.0
+offset_top = 113.0
+offset_right = 95.0
+offset_bottom = 143.0
+script = ExtResource("13_d2bti")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gold" unique_id=87879490]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 21.0
+
+[node name="GoldVIMG" type="TextureRect" parent="Gold/HBoxContainer" unique_id=1901967822]
+layout_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="Gold/HBoxContainer" unique_id=741278814]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_k73cj")
+text = "x Gold"
+script = ExtResource("18_k73cj")
+
+[node name="Timer" type="Timer" parent="Gold" unique_id=1942860593]
+wait_time = 3.0
+
+[node name="Rock" type="Sprite2D" parent="Gold" unique_id=1259337178]
+visible = false
+position = Vector2(14, 20)
+scale = Vector2(0.02684564, 0.029098362)
+texture = ExtResource("14_ta5nu")
+
+[node name="GoldIMG" type="Sprite2D" parent="Gold" unique_id=1379698201]
+unique_name_in_owner = true
+position = Vector2(14, 16.000002)
+scale = Vector2(0.060000002, 0.06317495)
+texture = ExtResource("15_flf07")
+
+[node name="Area2D" type="Area2D" parent="Gold" unique_id=558018773]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold/Area2D" unique_id=1693462965]
+position = Vector2(15, 12)
+shape = SubResource("CircleShape2D_rjqkl")
+
+[connection signal="body_entered" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_exited"]

@@ -14,7 +14,7 @@ func _on_gold_mined(value: int) -> void:
 	player_cdata["gold"] += value
 	print("Current Gold in dictionary: ", player_cdata["gold"])
 	
-	%GoldValueLabel.text = str(player_cdata["gold"]) + " Gold"
+	%GoldValueLabel.start_popup(str(player_cdata["gold"]) + " Gold")
 
 func _process(delta: float) -> void:
 	pass

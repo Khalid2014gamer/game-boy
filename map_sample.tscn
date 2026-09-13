@@ -1,0 +1,243 @@
+[gd_scene format=4 uid="uid://bouxd0fbn7awt"]
+
+[ext_resource type="Texture2D" uid="uid://dfvqggfcsi7ex" path="res://Assets/Images/AurumTileset-1.png" id="1_a16fc"]
+[ext_resource type="Texture2D" uid="uid://cpdne77l3xcr8" path="res://Assets/Images/AurumTileset-Background.png" id="1_grc7k"]
+[ext_resource type="Script" uid="uid://dwi06wo2bs230" path="res://Scripts/Player/character_body_2d.gd" id="3_wv5dd"]
+[ext_resource type="Texture2D" uid="uid://dcwcbybjgcb31" path="res://Assets/Animation/IdleAnim/Miner-Idle.png" id="4_jujlv"]
+[ext_resource type="Texture2D" uid="uid://bxj6wficqm3na" path="res://Assets/Animation/RunAnim/Miner-Walk.png" id="5_ntyt3"]
+[ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="7_ntyt3"]
+[ext_resource type="Script" uid="uid://cfovbdplf1tja" path="res://Scripts/Player/animated_sprite_2d.gd" id="13_ifc0t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msjlk"]
+texture = ExtResource("1_a16fc")
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+3:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+3:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+8:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_0yseu"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_msjlk")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grc7k"]
+texture = ExtResource("1_a16fc")
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+3:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+3:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+8:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1c765"]
+sources/2 = SubResource("TileSetAtlasSource_grc7k")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hanr"]
+atlas = ExtResource("4_jujlv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stthv"]
+atlas = ExtResource("4_jujlv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d8hu"]
+atlas = ExtResource("4_jujlv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f15jq"]
+atlas = ExtResource("4_jujlv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv5dd"]
+atlas = ExtResource("4_jujlv")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyn54"]
+atlas = ExtResource("5_ntyt3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w61wy"]
+atlas = ExtResource("5_ntyt3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctdc6"]
+atlas = ExtResource("5_ntyt3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qiiq"]
+atlas = ExtResource("5_ntyt3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kraed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hanr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stthv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d8hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f15jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv5dd")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyn54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w61wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctdc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qiiq")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ntyt3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.6509804, 0.37254903, 0.14509805, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_msjlk"]
+gradient = SubResource("Gradient_ntyt3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3w5yh"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.084
+spread = 20.689
+flatness = 0.07
+initial_velocity_min = 72.59
+initial_velocity_max = 153.23999
+angular_velocity_min = -103.92001
+angular_velocity_max = -81.65002
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -85.57
+linear_accel_max = -35.050003
+radial_accel_min = -14.430002
+radial_accel_max = -14.430002
+tangential_accel_min = -23.720001
+tangential_accel_max = 5.1499977
+damping_max = 11.856001
+color_ramp = SubResource("GradientTexture1D_msjlk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2bum"]
+size = Vector2(18, 19)
+
+[node name="MapSample" type="Node2D" unique_id=2037809535]
+
+[node name="AurumTilesetBackground" type="Sprite2D" parent="." unique_id=255659448]
+position = Vector2(76, 75.00001)
+scale = Vector2(8.512499, 8.618055)
+texture = ExtResource("1_grc7k")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1664346511]
+tile_map_data = PackedByteArray("AAD//wEAAAAFAAQAAAD//wIAAAAFAAQAAAD//wMAAAAFAAQAAAD//wAAAAAFAAQAAAAAAAAAAAAFAAQAAAABAAAAAAAFAAQAAAACAAAAAAAFAAQAAAADAAAAAAAFAAQAAAAEAAAAAAAFAAQAAAAFAAAAAAAFAAQAAAAGAAAAAAAFAAQAAAAHAAAAAAAFAAQAAAAIAAAAAAAFAAQAAAAJAAAAAAAFAAQAAAAJAAEAAAAFAAQAAAAJAAIAAAAFAAQAAAAJAAMAAAAFAAQAAAAJAAQAAAAFAAQAAAAJAAUAAAAFAAQAAAAIAAUAAAAFAAQAAAAJAAYAAAAFAAQAAAAJAAcAAAAFAAQAAAAJAAgAAAAFAAQAAAAIAAkAAAAFAAQAAAAHAAkAAAAFAAQAAAAGAAkAAAAFAAQAAAAFAAkAAAAFAAQAAAAEAAkAAAAFAAQAAAADAAkAAAAFAAQAAAADAAgAAAAFAAQAAAAEAAgAAAAFAAQAAAAFAAgAAAAFAAQAAAAGAAgAAAAFAAQAAAAHAAgAAAAFAAQAAAAIAAgAAAAFAAQAAAACAAgAAAAFAAQAAAACAAcAAAAFAAQAAAACAAYAAAAFAAQAAAACAAUAAAAFAAQAAAACAAQAAAAFAAQAAAACAAMAAAAFAAQAAAADAAMAAAAFAAQAAAABAAMAAAAFAAQAAAABAAQAAAAFAAQAAAAAAAQAAAAFAAQAAAAAAAMAAAAFAAQAAAA=")
+tile_set = SubResource("TileSet_0yseu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1532151823]
+position = Vector2(-16, -8)
+tile_map_data = PackedByteArray("AAACAAEAAgAFAAEAAAADAAEAAgAGAAEAAAAEAAEAAgAGAAEAAAAHAAEAAgAGAAEAAAAGAAEAAgAGAAEAAAAFAAEAAgAFAAEAAAAIAAEAAgAFAAEAAAAJAAEAAgAIAAAAAAAJAAIAAgAIAAEAAAAJAAMAAgAIAAEAAAAJAAQAAgAIAAEAAAAJAAUAAgAIAAIAAAAJAAYAAgAIAAMAAAAJAAcAAgAIAAQAAAAJAAgAAgAIAAYAAAAIAAgAAgAHAAYAAAAHAAgAAgAHAAYAAAAFAAgAAgAHAAYAAAAGAAgAAgAFAAYAAAAEAAcAAgADAAUAAAAEAAYAAgADAAUAAAAEAAUAAgADAAQAAAAEAAQAAgADAAMAAAAEAAMAAgADAAIAAAADAAMAAgAIAAIAAAACAAMAAgAGAAYAAAABAAMAAgADAAYAAAABAAIAAgADAAUAAAABAAEAAgADAAAAAAAFAAkAAgAFAAEAAAAGAAkAAgAFAAEAAAAHAAkAAgAGAAEAAAAIAAkAAgAGAAEAAAABAAAAAgAFAAAAAAACAAAAAgAFAAAAAAAEAAAAAgAFAAAAAAADAAAAAgAFAAAAAAAFAAAAAgAGAAAAAAAGAAAAAgAGAAAAAAAJAAAAAgAGAAAAAAAHAAAAAgAFAAAAAAAIAAAAAgAFAAAAAAAHAAMAAgABAAUAAAAGAAQAAgAAAAUAAAACAAIAAgAAAAIAAAAFAAcAAgAAAAQAAAAIAAYAAgAHAAYAAAAIAAcAAgABAAIAAAAHAAQAAgABAAQAAAAKAAcAAgAEAAAAAAAKAAYAAgADAAMAAAAKAAQAAgAHAAAAAAAKAAUAAgAHAAAAAAAKAAMAAgAFAAEAAAAKAAIAAgAIAAAAAAAKAAEAAgADAAAAAAADAAcAAgADAAAAAAADAAYAAgADAAAAAAADAAUAAgADAAAAAAADAAQAAgADAAAAAAACAAQAAgADAAAAAAABAAQAAgADAAAAAAAAAAMAAgADAAAAAAAAAAIAAgADAAAAAAAAAAEAAgAHAAAAAAAEAAgAAgADAAYAAAAEAAkAAgAFAAEAAAADAAgAAgAIAAMAAAAJAAkAAgADAAMAAAAKAAgAAgAFAAEAAAA=")
+tile_set = SubResource("TileSet_1c765")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2000558678]
+position = Vector2(3, -100)
+script = ExtResource("3_wv5dd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1788303877]
+position = Vector2(17, 138)
+sprite_frames = SubResource("SpriteFrames_kraed")
+animation = &"Run"
+script = ExtResource("13_ifc0t")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=1758341756]
+position = Vector2(17, 139)
+rotation = 4.712301
+emitting = false
+amount = 80
+lifetime = 1.9200000000000002
+explosiveness = 0.15
+trail_enabled = true
+trail_lifetime = 0.060000000000000005
+trail_sections = 3
+trail_section_subdivisions = 9
+process_material = SubResource("ParticleProcessMaterial_3w5yh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1054895448]
+position = Vector2(19, 137.5)
+shape = SubResource("RectangleShape2D_y2bum")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1174904204 groups=["Camera"]]
+position = Vector2(18, 140)
+position_smoothing_enabled = true
+script = ExtResource("7_ntyt3")

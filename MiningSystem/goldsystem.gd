@@ -19,7 +19,7 @@ func _pressed() -> void:
 	emit_signal("gold", 1)
 	
 	%GoldIMG.visible = false
-	%Rock.visible = true
+	$Rock.visible = true
 	%HBoxContainer.visible = true
 	
 	await get_tree().create_timer(3.0).timeout
