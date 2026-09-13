@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://da3jkfrghl6gp"]
+
+[ext_resource type="Script" uid="uid://ci0bxhcldsk1w" path="res://MiningSystem/game_storage.gd" id="1_675bx"]
+[ext_resource type="Texture2D" uid="uid://b64q5ej7amemq" path="res://MiningSystem/character.png" id="1_g52mh"]
+[ext_resource type="Texture2D" uid="uid://dg1bqqodgc3xf" path="res://MiningSystem/gold.png" id="2_fxmhg"]
+[ext_resource type="Script" uid="uid://cmnyxbmnx1qpf" path="res://MiningSystem/goldsystem.gd" id="3_hce6y"]
+[ext_resource type="Texture2D" uid="uid://bg4xesl70g6w4" path="res://MiningSystem/rock.png" id="4_3gjvu"]
+[ext_resource type="FontFile" uid="uid://c53ieiaclikr4" path="res://MiningSystem/Minecraft.ttf" id="5_3gjvu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnmvs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g52mh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vi00w"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnmvs"]
+radius = 112.00446
+
+[node name="Game" type="Node2D" unique_id=401583183]
+
+[node name="GameStorage" type="Node" parent="." unique_id=281873224]
+script = ExtResource("1_675bx")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1140139433]
+position = Vector2(0, -0.18749619)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1509716531]
+position = Vector2(-1, -31.812504)
+scale = Vector2(2, 1.9658203)
+sprite_frames = SubResource("SpriteFrames_gnmvs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=98719778]
+position = Vector2(1, -8.812504)
+shape = SubResource("CircleShape2D_vi00w")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2003438647]
+
+[node name="Gold" type="Button" parent="." unique_id=1669336390]
+offset_left = 64.0
+offset_top = -32.0
+offset_right = 91.0
+offset_bottom = -2.0
+flat = true
+script = ExtResource("3_hce6y")
+
+[node name="Timer" type="Timer" parent="Gold" unique_id=1998071432]
+wait_time = 3.0
+
+[node name="GoldIMG" type="Sprite2D" parent="Gold" unique_id=1873075928]
+unique_name_in_owner = true
+position = Vector2(14, 16.000002)
+scale = Vector2(0.060000002, 0.06317495)
+texture = ExtResource("2_fxmhg")
+
+[node name="Rock" type="Sprite2D" parent="Gold" unique_id=941297035]
+unique_name_in_owner = true
+visible = false
+position = Vector2(13.999997, 20)
+scale = Vector2(0.02684564, 0.029098362)
+texture = ExtResource("4_3gjvu")
+
+[node name="Area2D" type="Area2D" parent="Gold" unique_id=1862251812]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold/Area2D" unique_id=1115784422]
+position = Vector2(15, 12)
+shape = SubResource("CircleShape2D_gnmvs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=247436993]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=574256596]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GoldVIMG" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1269572366]
+layout_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=1373761264]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_3gjvu")
+text = "x Gold"
+
+[connection signal="body_entered" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_exited"]

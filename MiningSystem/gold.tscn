@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bfvnxgp7wf64h"]
+
+[ext_resource type="Texture2D" uid="uid://dg1bqqodgc3xf" path="res://MiningSystem/gold.png" id="1_1gwo0"]
+
+[node name="Gold" type="Button" unique_id=123771690]
+anchors_preset = -1
+anchor_left = -0.5
+anchor_top = 1.4985939
+anchor_right = -0.5
+anchor_bottom = 1.4985939
+offset_left = 1216.0
+offset_top = -1189.0889
+offset_right = 1624.0
+offset_bottom = -718.08887
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_1gwo0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=841791513]
+wait_time = 3.0
