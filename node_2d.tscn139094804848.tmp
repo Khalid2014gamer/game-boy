@@ -14,9 +14,13 @@
 [ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="12_x0ka3"]
 [ext_resource type="Script" uid="uid://cmnyxbmnx1qpf" path="res://MiningSystem/goldsystem.gd" id="13_d2bti"]
 [ext_resource type="Script" uid="uid://ci0bxhcldsk1w" path="res://MiningSystem/game_storage.gd" id="13_flf07"]
+[ext_resource type="Texture2D" uid="uid://bg4xesl70g6w4" path="res://MiningSystem/rock.png" id="14_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://dg1bqqodgc3xf" path="res://MiningSystem/gold.png" id="15_flf07"]
 [ext_resource type="FontFile" uid="uid://c53ieiaclikr4" path="res://MiningSystem/Minecraft.ttf" id="17_k73cj"]
 [ext_resource type="Script" uid="uid://doqtlqkvupyou" path="res://Scripts/Buttons/gold_value_label.gd" id="18_k73cj"]
-[ext_resource type="Texture2D" uid="uid://q3kojgkveoks" path="res://Assets/Images/GoldRock-Tiles.png" id="19_rjqkl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjqkl"]
+radius = 44.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4bknk"]
 animations = [{
@@ -84,47 +88,52 @@ size = Vector2(6, 9.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbi0q"]
 size = Vector2(3.4856527, 4.999997)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rjqkl"]
-radius = 44.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
-atlas = ExtResource("19_rjqkl")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1c765"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fs4d3")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
-atlas = ExtResource("19_rjqkl")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
-atlas = ExtResource("19_rjqkl")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0yseu"]
-animations = [{
-"frames": [{
-"duration": 9.0,
-"texture": SubResource("AtlasTexture_7vxoj")
-}, {
-"duration": 9.0,
-"texture": SubResource("AtlasTexture_ei405")
-}],
-"loop": 0,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="test_level" type="Node2D" unique_id=317326170]
+
+[node name="Gold2" type="Button" parent="." unique_id=2072451834]
+offset_left = 110.0
+offset_top = 26.0
+offset_right = 137.0
+offset_bottom = 56.0
+script = ExtResource("13_d2bti")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gold2" unique_id=1370862981]
+visible = false
+layout_mode = 0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 21.0
+
+[node name="GoldVIMG" type="TextureRect" parent="Gold2/HBoxContainer" unique_id=629421693]
+layout_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="Gold2/HBoxContainer" unique_id=464190569 groups=["GoldLabels"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_k73cj")
+text = "x Gold"
+script = ExtResource("18_k73cj")
+
+[node name="Timer" type="Timer" parent="Gold2" unique_id=714198468]
+wait_time = 3.0
+
+[node name="Rock" type="Sprite2D" parent="Gold2" unique_id=652778967]
+visible = false
+position = Vector2(14, 20)
+scale = Vector2(0.02684564, 0.029098362)
+texture = ExtResource("14_ta5nu")
+
+[node name="GoldIMG" type="Sprite2D" parent="Gold2" unique_id=208351010]
+position = Vector2(14, 16.000002)
+scale = Vector2(0.060000002, 0.06317495)
+texture = ExtResource("15_flf07")
+
+[node name="Area2D" type="Area2D" parent="Gold2" unique_id=1832898385]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold2/Area2D" unique_id=268888494]
+position = Vector2(15, 12)
+shape = SubResource("CircleShape2D_rjqkl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1230276513]
 script = ExtResource("11_hqns4")
@@ -175,8 +184,6 @@ offset_left = 68.0
 offset_top = 113.0
 offset_right = 95.0
 offset_bottom = 143.0
-focus_mode = 0
-flat = true
 script = ExtResource("13_d2bti")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gold" unique_id=87879490]
@@ -199,6 +206,17 @@ script = ExtResource("18_k73cj")
 [node name="Timer" type="Timer" parent="Gold" unique_id=1942860593]
 wait_time = 3.0
 
+[node name="Rock" type="Sprite2D" parent="Gold" unique_id=1259337178]
+visible = false
+position = Vector2(14, 20)
+scale = Vector2(0.02684564, 0.029098362)
+texture = ExtResource("14_ta5nu")
+
+[node name="GoldIMG" type="Sprite2D" parent="Gold" unique_id=1379698201]
+position = Vector2(14, 16)
+scale = Vector2(0.060000002, 0.06317495)
+texture = ExtResource("15_flf07")
+
 [node name="Area2D" type="Area2D" parent="Gold" unique_id=558018773]
 position = Vector2(0, 4)
 
@@ -206,15 +224,7 @@ position = Vector2(0, 4)
 position = Vector2(15, 12)
 shape = SubResource("CircleShape2D_rjqkl")
 
-[node name="Rock" type="AnimatedSprite2D" parent="Gold" unique_id=3081033]
-visible = false
-position = Vector2(15, 16)
-sprite_frames = SubResource("SpriteFrames_1c765")
-
-[node name="GoldIMG" type="AnimatedSprite2D" parent="Gold" unique_id=124770130]
-position = Vector2(15, 16)
-sprite_frames = SubResource("SpriteFrames_0yseu")
-frame_progress = 0.12594195
-
+[connection signal="body_entered" from="Gold2/Area2D" to="Gold2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gold2/Area2D" to="Gold2" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_exited"]

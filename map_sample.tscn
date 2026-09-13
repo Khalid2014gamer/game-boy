@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dcwcbybjgcb31" path="res://Assets/Animation/IdleAnim/Miner-Idle.png" id="4_jujlv"]
 [ext_resource type="Texture2D" uid="uid://bxj6wficqm3na" path="res://Assets/Animation/RunAnim/Miner-Walk.png" id="5_ntyt3"]
 [ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="7_ntyt3"]
+[ext_resource type="Script" uid="uid://cmnyxbmnx1qpf" path="res://MiningSystem/goldsystem.gd" id="8_6d8hu"]
+[ext_resource type="FontFile" uid="uid://c53ieiaclikr4" path="res://MiningSystem/Minecraft.ttf" id="9_f15jq"]
+[ext_resource type="Script" uid="uid://doqtlqkvupyou" path="res://Scripts/Buttons/gold_value_label.gd" id="10_wv5dd"]
+[ext_resource type="Texture2D" uid="uid://q3kojgkveoks" path="res://Assets/Images/GoldRock-Tiles.png" id="11_qyn54"]
+[ext_resource type="Script" uid="uid://ci0bxhcldsk1w" path="res://MiningSystem/game_storage.gd" id="12_f15jq"]
 [ext_resource type="Script" uid="uid://cfovbdplf1tja" path="res://Scripts/Player/animated_sprite_2d.gd" id="13_ifc0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msjlk"]
@@ -194,6 +199,46 @@ color_ramp = SubResource("GradientTexture1D_msjlk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2bum"]
 size = Vector2(18, 19)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w61wy"]
+radius = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
+atlas = ExtResource("11_qyn54")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctdc6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4d3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
+atlas = ExtResource("11_qyn54")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
+atlas = ExtResource("11_qyn54")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qiiq"]
+animations = [{
+"frames": [{
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_7vxoj")
+}, {
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_ei405")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MapSample" type="Node2D" unique_id=2037809535]
 
 [node name="AurumTilesetBackground" type="Sprite2D" parent="." unique_id=255659448]
@@ -241,3 +286,102 @@ shape = SubResource("RectangleShape2D_y2bum")
 position = Vector2(18, 140)
 position_smoothing_enabled = true
 script = ExtResource("7_ntyt3")
+
+[node name="Gold" type="Button" parent="." unique_id=300763242]
+offset_left = 100.0
+offset_top = 15.0
+offset_right = 127.0
+offset_bottom = 45.0
+focus_mode = 0
+flat = true
+script = ExtResource("8_6d8hu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gold" unique_id=286117384]
+visible = false
+layout_mode = 0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 21.0
+
+[node name="GoldVIMG" type="TextureRect" parent="Gold/HBoxContainer" unique_id=327021294]
+layout_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="Gold/HBoxContainer" unique_id=748826900 groups=["GoldLabels"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_f15jq")
+text = "x Gold"
+script = ExtResource("10_wv5dd")
+
+[node name="Timer" type="Timer" parent="Gold" unique_id=1446962538]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="Gold" unique_id=413164686]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold/Area2D" unique_id=655818302]
+position = Vector2(15, 12)
+shape = SubResource("CircleShape2D_w61wy")
+
+[node name="Rock" type="AnimatedSprite2D" parent="Gold" unique_id=2129939541]
+visible = false
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_ctdc6")
+
+[node name="GoldIMG" type="AnimatedSprite2D" parent="Gold" unique_id=1670024203]
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_3qiiq")
+
+[node name="Gold" type="Button" parent="Gold" unique_id=561157233]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 23.0
+offset_right = 40.0
+offset_bottom = 53.0
+focus_mode = 0
+flat = true
+script = ExtResource("8_6d8hu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gold/Gold" unique_id=238659059]
+visible = false
+layout_mode = 0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 21.0
+
+[node name="GoldVIMG" type="TextureRect" parent="Gold/Gold/HBoxContainer" unique_id=2078207500]
+layout_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="Gold/Gold/HBoxContainer" unique_id=220956112 groups=["GoldLabels"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_f15jq")
+text = "x Gold"
+script = ExtResource("10_wv5dd")
+
+[node name="Timer" type="Timer" parent="Gold/Gold" unique_id=1684659989]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="Gold/Gold" unique_id=1898824966]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold/Gold/Area2D" unique_id=1596967876]
+position = Vector2(15, 12)
+shape = SubResource("CircleShape2D_w61wy")
+
+[node name="Rock" type="AnimatedSprite2D" parent="Gold/Gold" unique_id=1279310037]
+visible = false
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_ctdc6")
+
+[node name="GoldIMG" type="AnimatedSprite2D" parent="Gold/Gold" unique_id=736521468]
+position = Vector2(15, 16)
+sprite_frames = SubResource("SpriteFrames_3qiiq")
+
+[node name="GameStorage" type="Node" parent="." unique_id=1857482851 groups=["GameStorage"]]
+script = ExtResource("12_f15jq")
+
+[connection signal="body_entered" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Gold/Gold/Area2D" to="Gold/Gold" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gold/Gold/Area2D" to="Gold/Gold" method="_on_area_2d_body_exited"]

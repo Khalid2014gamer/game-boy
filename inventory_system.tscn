@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bwwhaki7un3hp"]
+
+[ext_resource type="Texture2D" uid="uid://cpdne77l3xcr8" path="res://Assets/Images/AurumTileset-Background.png" id="1_b2jfl"]
+[ext_resource type="Script" uid="uid://cmatpwhma21md" path="res://Scripts/Inventory/object.gd" id="2_6f8ps"]
+[ext_resource type="Texture2D" uid="uid://82c62jehmn15" path="res://Assets/Images/tile.png" id="2_at11i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ccox"]
+atlas = ExtResource("1_b2jfl")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1c765"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4bknk"]
+
+[node name="Inventory System" type="Node2D" unique_id=2030148364]
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1870350265]
+position = Vector2(80, 72)
+texture = SubResource("AtlasTexture_0ccox")
+
+[node name="TextureRect" type="TextureRect" parent="bg" unique_id=704585310]
+offset_left = -84.0
+offset_top = -76.0
+offset_right = 77.0
+offset_bottom = 68.0
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("2_at11i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="object" type="Sprite2D" parent="bg" unique_id=1634922208]
+material = SubResource("CanvasItemMaterial_1c765")
+position = Vector2(-64, -32)
+scale = Vector2(8, 8)
+texture = SubResource("PlaceholderTexture2D_4bknk")
+script = ExtResource("2_6f8ps")

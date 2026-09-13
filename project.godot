@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Boy"
-run/main_scene="uid://bouxd0fbn7awt"
+run/main_scene="uid://q00nx284wx7k"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [display]
@@ -26,6 +26,9 @@ window/stretch/mode="viewport"
 
 Camera=""
 Damagers=""
+GoldLabels=""
+GameStorage=""
+gold=""
 
 [physics]
 
