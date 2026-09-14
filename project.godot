@@ -29,6 +29,8 @@ Damagers=""
 GoldLabels=""
 GameStorage=""
 gold=""
+Player=""
+Items=""
 
 [physics]
 

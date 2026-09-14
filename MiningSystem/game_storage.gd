@@ -18,5 +18,10 @@ func _on_gold_mined(value: int) -> void:
 
 func _process(delta: float) -> void:
 	pass
+	
 func get_player_data():
 	return player_cdata
+func edit_player_data(value: int) -> void:
+	player_cdata["gold"] = value
+func countdown() -> void:
+	$GoldKiller._countdown()

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://sxlajicci12d"]
+
+[ext_resource type="Texture2D" uid="uid://bgepdb3kf1ef1" path="res://Assets/Images/TinyGold.png" id="1_7dwls"]
+[ext_resource type="Script" uid="uid://cb6fkbrasdq86" path="res://Scripts/Inventory/gold_sin.gd" id="2_0o2pm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dwls"]
+atlas = ExtResource("1_7dwls")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c765"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dwls")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sin_sample" type="Node2D" unique_id=1841158095]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1869538229]
+sprite_frames = SubResource("SpriteFrames_1c765")
+script = ExtResource("2_0o2pm")
