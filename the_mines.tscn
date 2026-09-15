@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="7_h0wmm"]
 [ext_resource type="Texture2D" uid="uid://cps6f3tni2npf" path="res://Assets/Animation/MineAnim/Miner-Pick.png" id="9_h0wmm"]
 [ext_resource type="Script" uid="uid://ci0bxhcldsk1w" path="res://MiningSystem/game_storage.gd" id="12_oju41"]
+[ext_resource type="AudioStream" uid="uid://b4d874t082xbg" path="res://Assets/Sounds/Mining.ogg" id="13_vj3q6"]
 [ext_resource type="Script" uid="uid://btmro56fig36e" path="res://Scripts/Inventory/gold_killer.gd" id="14_mltde"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vj3q6"]
@@ -811,6 +812,9 @@ shape = SubResource("RectangleShape2D_4hck8")
 position = Vector2(18, 140)
 position_smoothing_enabled = true
 script = ExtResource("7_h0wmm")
+
+[node name="Mining" type="AudioStreamPlayer" parent="Player" unique_id=1999861648]
+stream = ExtResource("13_vj3q6")
 
 [node name="Gold5" type="Button" parent="." unique_id=2083570180 groups=["gold"]]
 offset_left = 181.0
