@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dhm3ugcjir1gv"]
+
+[ext_resource type="Script" uid="uid://cvj7lsskensf8" path="res://InventorySystem/howtoadditem.gd" id="1_oqq0v"]
+[ext_resource type="Script" uid="uid://0ekw8vriw2cq" path="res://InventorySystem/invgridlayout.gd" id="2_m1e4t"]
+
+[node name="InvSystem" type="Node2D" unique_id=290457515]
+
+[node name="Inventory" type="Node" parent="." unique_id=588337381]
+script = ExtResource("1_oqq0v")
+
+[node name="Control" type="Control" parent="." unique_id=655740660]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_m1e4t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=990310268]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer" unique_id=693371668]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control/CanvasLayer/HBoxContainer" unique_id=1941336778]
+layout_mode = 2
+
+[node name="MainInvGrid" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/Panel" unique_id=1415508803]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 10
+
+[node name="Slot" type="Panel" parent="Control/CanvasLayer/HBoxContainer/Panel/MainInvGrid" unique_id=18939483]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/HBoxContainer" unique_id=124696686]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer" unique_id=934138189]
+layout_mode = 2
+
+[node name="WhatYouHave" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer/Panel3" unique_id=560526766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+
+[node name="Slot" type="Panel" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer/Panel3/WhatYouHave" unique_id=195007337]
+layout_mode = 2
