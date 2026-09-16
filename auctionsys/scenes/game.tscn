@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b2goif4ves6vc"]
+
+[ext_resource type="Script" uid="uid://vbn4wyctrrtf" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://c6k0ekmor3cfr" path="res://scripts/score.gd" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://b552khhs6yhc0" path="res://scenes/text.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://23a6g5sxo016" path="res://scenes/window.tscn" id="2_lnu2h"]
+
+[node name="game" type="Node2D" unique_id=1382121535]
+position = Vector2(-484, -147)
+script = ExtResource("1_yqjtg")
+
+[node name="score" type="RichTextLabel" parent="." unique_id=2081929372]
+offset_left = 1731.0
+offset_top = -259.0
+offset_right = 2021.0
+offset_bottom = 181.0
+scroll_active = false
+script = ExtResource("2_iywne")
+
+[node name="texts" type="Node" parent="." unique_id=235594789]
+
+[node name="text" parent="texts" unique_id=692667881 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text2" parent="texts" unique_id=5886677 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text3" parent="texts" unique_id=2125200475 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text4" parent="texts" unique_id=1972809484 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text5" parent="texts" unique_id=1735379187 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text6" parent="texts" unique_id=290621806 instance=ExtResource("2_lbhrr")]
+
+[node name="text7" parent="texts" unique_id=466497486 instance=ExtResource("2_lbhrr")]
+
+[node name="text8" parent="texts" unique_id=2094175717 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text9" parent="texts" unique_id=1327026394 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="text10" parent="texts" unique_id=1494735829 instance=ExtResource("2_lbhrr")]
+position = Vector2(-484, -147)
+
+[node name="windows" type="Node" parent="." unique_id=1315125566]
+
+[node name="window" parent="windows" unique_id=1413406394 instance=ExtResource("2_lnu2h")]
+position = Vector2(-688, -533)
+
+[node name="window2" parent="windows" unique_id=940059412 instance=ExtResource("2_lnu2h")]
+position = Vector2(-689, -53)
+
+[node name="window3" parent="windows" unique_id=15475459 instance=ExtResource("2_lnu2h")]
+position = Vector2(-688, -296)
+
+[node name="window4" parent="windows" unique_id=896125978 instance=ExtResource("2_lnu2h")]
+position = Vector2(-688, 184)
+
+[node name="window5" parent="windows" unique_id=1961117584 instance=ExtResource("2_lnu2h")]
+position = Vector2(-688, 664)
+
+[node name="window6" parent="windows" unique_id=1688620048 instance=ExtResource("2_lnu2h")]
+position = Vector2(-688, 429)
+
+[node name="window7" parent="windows" unique_id=152101089 instance=ExtResource("2_lnu2h")]
+position = Vector2(-688, 906)
+
+[node name="window8" parent="windows" unique_id=1864875640 instance=ExtResource("2_lnu2h")]
+position = Vector2(-687, 1143)
+
+[node name="window9" parent="windows" unique_id=292625075 instance=ExtResource("2_lnu2h")]
+position = Vector2(-687, 1623)
+
+[node name="window10" parent="windows" unique_id=272536132 instance=ExtResource("2_lnu2h")]
+position = Vector2(-687, 1388)
+
+[node name="Camera2D" type="Camera2D" parent="windows" unique_id=1264411611]
+position = Vector2(472, 164)
+zoom = Vector2(0.5, 0.5)

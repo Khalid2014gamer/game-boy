@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b552khhs6yhc0"]
+
+[ext_resource type="Script" uid="uid://cl0wj0sws4xxe" path="res://scripts/text.gd" id="1_wwb76"]
+[ext_resource type="Script" uid="uid://bivjqp7l3ap7y" path="res://scripts/item.gd" id="2_t50sv"]
+[ext_resource type="Script" uid="uid://cvl188linc05w" path="res://scripts/number.gd" id="3_qooke"]
+
+[node name="text" type="Node2D" unique_id=1735379187]
+z_index = 10
+position = Vector2(-46, -10)
+script = ExtResource("1_wwb76")
+
+[node name="item" type="RichTextLabel" parent="." unique_id=883377464]
+offset_left = -84.0
+offset_top = -10.0
+offset_right = 403.0
+offset_bottom = 20.0
+fit_content = true
+scroll_active = false
+script = ExtResource("2_t50sv")
+
+[node name="number" type="RichTextLabel" parent="." unique_id=1755304105]
+offset_left = -71.0
+offset_top = -16.0
+offset_right = 160.0
+offset_bottom = 35.0
+scroll_active = false
+script = ExtResource("3_qooke")
