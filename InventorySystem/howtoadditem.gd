@@ -8,7 +8,6 @@ func _ready() -> void:
 	if inventory == null:
 		print("Inventory not found!")
 		return
-
 	inventory.add_item("new_pickaxe")
 
 # IMPORTANT THE SCRIPT ADDING A ITEM MUST BE IN SOME KIND OF NODE, JUST HAS TO BE IN THE SCENE ALR CHAT

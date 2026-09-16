@@ -12,15 +12,15 @@ var main_cols = 10
 var main_rows = 10
 var have_cols = 5
 var have_rows = 5
-
+var slot_texture = preload("res://Assets/Images/Slots2.png")
 var items = { # khalididdy youy can put the items here, alr, the color is random for now but ofc have to change later
 	"new_pickaxe": {
 		"name": "New Pickaxe",
-		"color": Color(0.88, 0.46, 0.38),
+		"color": preload("res://Assets/Images/pick4.tres"),
 		"shape": [ # ts matrix, 0 is empty, 1 is filled, can be as big as u want
-			[1, 1, 1],
+			[0, 0, 0],
 			[0, 1, 0],
-			[0, 1, 0]
+			[0, 0, 0]
 		]
 	}
 }
@@ -51,7 +51,7 @@ func _ready():
 
 	refresh()
 
-	canvas.visible = false
+	canvas.visible = true
 
 
 func setup_layout():
@@ -112,14 +112,26 @@ func make_slots(grid, amount):
 		child.free()
 
 	for i in range(amount):
-		var slot = ColorRect.new()
+		var slot = TextureRect.new()
 
-		slot.color = Color(0.15, 0.15, 0.15, 0.5)
+		slot.texture = slot_texture
 		slot.custom_minimum_size = Vector2(SLOT_SIZE, SLOT_SIZE)
+
+		slot.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		slot.stretch_mode = TextureRect.STRETCH_SCALE
 		slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-		grid.add_child(slot)
+		var item = TextureRect.new()
 
+		item.name = "Item"
+		item.size = Vector2(SLOT_SIZE, SLOT_SIZE)
+		item.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		item.visible = false
+
+		item.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		item.stretch_mode = TextureRect.STRETCH_SCALE
+		slot.add_child(item)
+		grid.add_child(slot)
 func add_item(name):
 	if not items.has(name):
 		print("item not found: ", name)
@@ -156,11 +168,12 @@ func _input(event):
 	if event.is_action_pressed("inventory"):
 		if holding:
 			put_back()
-
+		
 		canvas.visible = !canvas.visible
+		
 		return
 
-	if not canvas.visible:
+	if canvas.visible:
 		return
 
 	if event.is_action_pressed("rotate_item") and holding:
@@ -229,7 +242,7 @@ func grab_item(grid, from, cell, cols, rows):
 	)
 
 	holding = true
-
+	get_tree().get_first_node_in_group("Camera").trigger_shake()
 	make_preview()
 	refresh()
 
@@ -337,6 +350,7 @@ func can_put(grid, shape, x, y, cols, rows):
 	return true
 
 func put_item(grid, name, id, shape, x, y):
+	get_tree().get_first_node_in_group("Camera").trigger_shake()
 	for sy in range(shape.size()):
 		for sx in range(shape[sy].size()):
 			if shape[sy][sx] == 0:
@@ -410,20 +424,15 @@ func make_preview():
 			if shape[y][x] == 0:
 				continue
 
-			var square = ColorRect.new()
+			var square = Image.new()
 
-			square.color = color
-
-			square.size = Vector2(
-				SLOT_SIZE,
-				SLOT_SIZE
-			)
-
-			square.position = Vector2(
-				x * STEP,
-				y * STEP
-			)
-			square.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			#square.blit_rect(color)
+			#square.resize(SLOT_SIZE,SLOT_SIZE)
+			#square. = Vector2(
+				#x * STEP,
+				#y * STEP
+			#)
+			#square.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 			preview.add_child(square)
 
@@ -490,17 +499,12 @@ func refresh():
 func update_grid(grid, node, cols, rows):
 	for y in range(rows):
 		for x in range(cols):
-			var slot = node.get_child(
-				y * cols + x
-			)
+			var slot = node.get_child(y * cols + x)
+			var item = slot.get_node("Item")
 			var data = grid[y][x]
 
 			if data == null:
-				slot.color = Color(
-					0.15,
-					0.15,
-					0.15,
-					0.5
-				)
+				item.visible = false
 			else:
-				slot.color = items[data["name"]]["color"]
+				item.visible = true
+				item.texture = items[data["name"]]["color"]

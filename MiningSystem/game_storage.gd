@@ -18,10 +18,15 @@ func _on_gold_mined(value: int) -> void:
 
 func _process(delta: float) -> void:
 	pass
-	
+func _input(event):
+	if event is InputEventKey and event.echo:
+		return
+
+	if event.is_action_pressed("inventory"):
+		
 func get_player_data():
 	return player_cdata
 func edit_player_data(value: int) -> void:
 	player_cdata["gold"] = value
 func countdown() -> void:
-	$GoldKiller._countdown()
+	get_tree().get_first_node_in_group("GameStorage").get_child(0)._countdown()

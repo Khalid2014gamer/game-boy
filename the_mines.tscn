@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://cmnyxbmnx1qpf" path="res://MiningSystem/goldsystem.gd" id="2_7ud8u"]
 [ext_resource type="Texture2D" uid="uid://dfvqggfcsi7ex" path="res://Assets/Images/AurumTileset-1.png" id="2_a7x85"]
 [ext_resource type="Script" uid="uid://dwi06wo2bs230" path="res://Scripts/Player/character_body_2d.gd" id="3_n870i"]
-[ext_resource type="FontFile" uid="uid://c53ieiaclikr4" path="res://MiningSystem/Minecraft.ttf" id="3_oju41"]
 [ext_resource type="Script" uid="uid://doqtlqkvupyou" path="res://Scripts/Buttons/gold_value_label.gd" id="4_h0wmm"]
 [ext_resource type="Texture2D" uid="uid://dcwcbybjgcb31" path="res://Assets/Animation/IdleAnim/Miner-Idle.png" id="4_ub7kd"]
 [ext_resource type="Texture2D" uid="uid://bxj6wficqm3na" path="res://Assets/Animation/RunAnim/Miner-Walk.png" id="5_7ud8u"]
+[ext_resource type="FontFile" uid="uid://c87imn2pmxnbg" path="res://Assets/Images/GrapeSoda.ttf" id="5_jajq3"]
 [ext_resource type="Texture2D" uid="uid://q3kojgkveoks" path="res://Assets/Images/GoldRock-Tiles.png" id="5_mltde"]
 [ext_resource type="Script" uid="uid://cfovbdplf1tja" path="res://Scripts/Player/animated_sprite_2d.gd" id="6_oju41"]
 [ext_resource type="Script" uid="uid://d11an3cmtsepj" path="res://Scripts/Camera/camera_2d.gd" id="7_h0wmm"]
@@ -516,11 +516,11 @@ scale = Vector2(6.28125, 7.3125)
 texture = ExtResource("1_te61h")
 
 [node name="GoldValueLabel" type="Label" parent="." unique_id=219592798 groups=["GoldLabels"]]
-offset_left = 244.00002
-offset_top = 112.0
-offset_right = 293.0
-offset_bottom = 128.0
-theme_override_fonts/font = ExtResource("3_oju41")
+offset_left = 287.0
+offset_top = 220.0
+offset_right = 336.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -546,7 +546,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold6/HBoxContainer" unique_id=1316658497 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -557,6 +557,7 @@ wait_time = 3.0
 position = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gold6/Area2D" unique_id=1444387809]
+visible = false
 position = Vector2(15, 12)
 shape = SubResource("CircleShape2D_vj3q6")
 
@@ -574,9 +575,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
@@ -603,7 +604,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold4/HBoxContainer" unique_id=905724619 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -631,9 +632,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
@@ -660,7 +661,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold/HBoxContainer" unique_id=1035419989 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -688,9 +689,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
@@ -717,7 +718,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold3/HBoxContainer" unique_id=1943076501 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -745,9 +746,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
@@ -774,7 +775,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold2/HBoxContainer" unique_id=1632698849 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -802,9 +803,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
@@ -841,10 +842,10 @@ position = Vector2(17, 139)
 rotation = 4.712301
 emitting = false
 amount = 150
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
 trail_enabled = true
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_jajq3")
@@ -888,7 +889,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold5/HBoxContainer" unique_id=960269590 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -916,9 +917,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
@@ -945,7 +946,7 @@ layout_mode = 2
 
 [node name="GoldValueLabel" type="Label" parent="Gold7/HBoxContainer" unique_id=288769361 groups=["GoldLabels"]]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_oju41")
+theme_override_fonts/font = ExtResource("5_jajq3")
 text = "x Gold"
 script = ExtResource("4_h0wmm")
 
@@ -973,9 +974,9 @@ position = Vector2(16, 19)
 rotation = -1.5708846
 emitting = false
 amount = 5
-lifetime = 1.9200000000000002
+lifetime = 1.92
 explosiveness = 0.15
-trail_lifetime = 0.060000000000000005
+trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_h0wmm")
