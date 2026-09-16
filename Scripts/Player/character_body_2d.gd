@@ -64,13 +64,19 @@ func update_animation(input_dir: Vector2) -> void:
 			$Footstep.stop()
 			animated_sprite.play("Idle")
 func kill() -> void:
-		camera.trigger_shake()
-		blood.emitting = true
-		velocity = Vector2.ZERO
-		animated_sprite.visible = false
-		await get_tree().create_timer(0.14).timeout
-		blood.emitting = false
-		set_physics_process(false)
+	set_physics_process(false)
+	velocity = Vector2.ZERO
+	
+	camera.trigger_shake()
+	blood.emitting = true
+	
+	animated_sprite.play("Die")
+	
+	await get_tree().create_timer(0.14).timeout
+	blood.emitting = false
+	
+	await animated_sprite.animation_finished
+	animated_sprite.visible = false
 func Mine() -> void:
 	$AnimatedSprite2D.play("Mining")
 	mining = true

@@ -26,16 +26,19 @@ layout_mode = 2
 
 [node name="MainInvGrid" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/Panel" unique_id=1415508803]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
 columns = 10
 
 [node name="Slot" type="Panel" parent="Control/CanvasLayer/HBoxContainer/Panel/MainInvGrid" unique_id=18939483]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/HBoxContainer" unique_id=124696686]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="Panel3" type="Panel" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer" unique_id=934138189]
 layout_mode = 2
@@ -44,6 +47,8 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
 columns = 5
 
 [node name="Slot" type="Panel" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer/Panel3/WhatYouHave" unique_id=195007337]

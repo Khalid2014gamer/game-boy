@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn2bjigcl1715"
-path="res://.godot/imported/window.png-23227522d4be1bacfb3b586a6df9308e.ctex"
+uid="uid://bhponqst7jys4"
+path="res://.godot/imported/ExplosionAnim.png-f7e480e99047a0d879f0cb609cb4ec2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://auctionsys/assets/window.png"
-dest_files=["res://.godot/imported/window.png-23227522d4be1bacfb3b586a6df9308e.ctex"]
+source_file="res://Assets/Images/ExplosionAnim.png"
+dest_files=["res://.godot/imported/ExplosionAnim.png-f7e480e99047a0d879f0cb609cb4ec2c.ctex"]
 
 [params]
 

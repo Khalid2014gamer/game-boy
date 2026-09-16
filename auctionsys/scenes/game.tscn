@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b2goif4ves6vc"]
 
-[ext_resource type="Script" uid="uid://vbn4wyctrrtf" path="res://scripts/game.gd" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://c6k0ekmor3cfr" path="res://scripts/score.gd" id="2_iywne"]
-[ext_resource type="PackedScene" uid="uid://b552khhs6yhc0" path="res://scenes/text.tscn" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://23a6g5sxo016" path="res://scenes/window.tscn" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://vbn4wyctrrtf" path="res://auctionsys/scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://c6k0ekmor3cfr" path="res://auctionsys/scripts/score.gd" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://b552khhs6yhc0" path="res://auctionsys/scenes/text.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://23a6g5sxo016" path="res://auctionsys/scenes/window.tscn" id="2_lnu2h"]
 
 [node name="game" type="Node2D" unique_id=1382121535]
 position = Vector2(-484, -147)
@@ -78,7 +78,3 @@ position = Vector2(-687, 1623)
 
 [node name="window10" parent="windows" unique_id=272536132 instance=ExtResource("2_lnu2h")]
 position = Vector2(-687, 1388)
-
-[node name="Camera2D" type="Camera2D" parent="windows" unique_id=1264411611]
-position = Vector2(472, 164)
-zoom = Vector2(0.5, 0.5)
