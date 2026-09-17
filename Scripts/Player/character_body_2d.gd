@@ -9,8 +9,11 @@ var mining = false
 @onready var blood: GPUParticles2D = $GPUParticles2D
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera")
 @onready var gold_inv: Array = []
+@onready var dis = false
 @onready var gs = get_tree().get_first_node_in_group("GameStorage")
 func _physics_process(delta: float) -> void:
+	if dis == true:
+		set_physics_process(false)
 	var direction := Input.get_vector("ui_left", "ui_right","ui_up","ui_down")
 	var is_kill_pressed := Input.is_key_pressed(KEY_K)
 	if is_kill_pressed:
@@ -47,7 +50,16 @@ func _physics_process(delta: float) -> void:
 			get_tree().get_first_node_in_group("GoldLabels").start_popup(str(get_tree().get_nodes_in_group("GameStorage")[0].get_player_data()["gold"]) + " Gold")
 		else:
 			pass
-				
+func _input(event):
+	if event is InputEventKey and event.echo:
+		return
+
+	if event.is_action_pressed("inventory"):
+		if dis:
+			dis = false
+			set_physics_process(true)
+		else:
+			dis = true
 func update_animation(input_dir: Vector2) -> void:
 	if mining == false:
 		if input_dir != Vector2.ZERO:

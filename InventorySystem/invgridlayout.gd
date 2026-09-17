@@ -34,7 +34,8 @@ var preview = null
 
 var item_id_count = 0
 
-
+var inventory_items = []
+var hotbar_items = []
 func _ready():
 	add_to_group("inventory")
 
@@ -51,9 +52,12 @@ func _ready():
 
 	refresh()
 
-	canvas.visible = true
+	canvas.visible = false
 
-
+func fetch_inv():
+	return main
+func fetch_current():
+	return have
 func setup_layout():
 	var hbox = $CanvasLayer/HBoxContainer
 	var main_panel = $CanvasLayer/HBoxContainer/Panel
@@ -170,10 +174,13 @@ func _input(event):
 			put_back()
 		
 		canvas.visible = !canvas.visible
-		
+		$Camera2D.enabled = true
+		get_tree().get_first_node_in_group("Player").get_node("Camera2D").enabled = false
 		return
 
-	if canvas.visible:
+	if not canvas.visible:
+		$Camera2D.enabled = false
+		get_tree().get_first_node_in_group("Player").get_node("Camera2D").enabled = true
 		return
 
 	if event.is_action_pressed("rotate_item") and holding:
@@ -350,6 +357,11 @@ func can_put(grid, shape, x, y, cols, rows):
 	return true
 
 func put_item(grid, name, id, shape, x, y):
+	var location = "main"
+
+	if grid == have:
+		location = "hotbar"
+	print(location)
 	get_tree().get_first_node_in_group("Camera").trigger_shake()
 	for sy in range(shape.size()):
 		for sx in range(shape[sy].size()):
@@ -457,8 +469,12 @@ func put_back():
 
 	if held["from"] == "have":
 		grid = have
+		hotbar_items.append(held["name"])
+		print(hotbar_items)
 	else:
 		grid = main
+		inventory_items.append(held["name"])
+		print(inventory_items)
 
 	put_item(
 		grid,

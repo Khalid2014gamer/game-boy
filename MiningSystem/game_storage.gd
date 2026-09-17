@@ -21,9 +21,9 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event is InputEventKey and event.echo:
 		return
-
-	if event.is_action_pressed("inventory"):
-		
+#
+	#if event.is_action_pressed("inventory"):
+		#
 func get_player_data():
 	return player_cdata
 func edit_player_data(value: int) -> void:
