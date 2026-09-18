@@ -14,7 +14,7 @@ var mining = false
 func _physics_process(delta: float) -> void:
 	if dis == true:
 		set_physics_process(false)
-	var direction := Input.get_vector("ui_left", "ui_right","ui_up","ui_down")
+	var direction := Input.get_vector("move_left", "move_right","move_up","move_down")
 	var is_kill_pressed := Input.is_key_pressed(KEY_K)
 	if is_kill_pressed:
 		kill()

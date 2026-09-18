@@ -175,12 +175,12 @@ func _input(event):
 		
 		canvas.visible = !canvas.visible
 		$Camera2D.enabled = true
-		get_tree().get_first_node_in_group("Player").get_node("Camera2D").enabled = false
+		#get_tree().get_first_node_in_group("Player").get_node("Camera2D").enabled = false
 		return
 
 	if not canvas.visible:
 		$Camera2D.enabled = false
-		get_tree().get_first_node_in_group("Player").get_node("Camera2D").enabled = true
+		#get_tree().get_first_node_in_group("Player").get_node("Camera2D").enabled = true
 		return
 
 	if event.is_action_pressed("rotate_item") and holding:
