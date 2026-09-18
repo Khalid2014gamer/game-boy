@@ -12,4 +12,3 @@ func _ready() -> void:
 func _add_item(item: String) -> void:
 	inventory.add_item(item)
 # IMPORTANT THE SCRIPT ADDING A ITEM MUST BE IN SOME KIND OF NODE, JUST HAS TO BE IN THE SCENE ALR CHAT
- 
