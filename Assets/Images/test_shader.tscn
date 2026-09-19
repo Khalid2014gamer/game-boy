@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b84v2ecr8rua4"]
+
+[ext_resource type="Shader" uid="uid://b0b0am15inv2d" path="res://Scripts/cave.gdshader" id="1_7cy7x"]
+[ext_resource type="Texture2D" uid="uid://bg4xesl70g6w4" path="res://MiningSystem/rock.png" id="2_k5h3t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c765"]
+shader = ExtResource("1_7cy7x")
+shader_parameter/radius = 0.25
+shader_parameter/softness = 0.08
+
+[node name="TestShader" type="Node2D" unique_id=1077071985]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1864091654]
+material = SubResource("ShaderMaterial_1c765")
+position = Vector2(78, 71)
+scale = Vector2(0.16666667, 0.23770492)
+texture = ExtResource("2_k5h3t")
