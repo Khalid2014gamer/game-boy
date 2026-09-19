@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 @export var timer = 0.0
 @onready var start_y = position.y

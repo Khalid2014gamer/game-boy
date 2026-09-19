@@ -391,7 +391,7 @@ func grab_selected_item():
 	holding = true
 	selected_item_id = -1
 	
-	var camera = get_tree().get_first_node_in_group("Camera")
+	var camera = $Camera2D
 	if camera != null:
 		camera.trigger_shake()
 		
@@ -604,7 +604,7 @@ func put_item(grid, name, id, shape, x, y):
 	particle.emitting = true
 
 	get_tree().get_first_node_in_group("Camera").trigger_shake()
-
+	$Camera2D.trigger_shake()
 	for sy in range(shape.size()):
 		for sx in range(shape[sy].size()):
 			if shape[sy][sx] == 0:
