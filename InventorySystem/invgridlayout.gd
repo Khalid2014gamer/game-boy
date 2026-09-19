@@ -69,7 +69,7 @@ func _ready():
 	
 	canvas.visible = false
 	
-	update_selection_visual()
+	clear_selection_visual()
 
 func fetch_inv():
 	return main
@@ -584,24 +584,38 @@ func can_put(grid, shape, x, y, cols, rows):
 
 func put_item(grid, name, id, shape, x, y):
 	var location = "main"
+	var visual_grid = main_grid
+	var columns = 10
+
 	if grid == have:
 		location = "hotbar"
+		visual_grid = have_grid
+		columns = 5
+
 	print(location)
-	
+
+	var slot_index = y * columns + x
+	var slot = visual_grid.get_child(slot_index)
+
+	var particle = preload("res://InventorySystem/place_particle.tscn").instantiate()
+	canvas.add_child(particle)
+
+	particle.global_position = slot.get_global_rect().get_center() + Vector2(STEP, STEP)
+	particle.emitting = true
+
 	get_tree().get_first_node_in_group("Camera").trigger_shake()
-		
+
 	for sy in range(shape.size()):
 		for sx in range(shape[sy].size()):
 			if shape[sy][sx] == 0:
 				continue
-				
+
 			grid[y + sy][x + sx] = {
 				"name": name,
 				"id": id,
 				"x": x,
 				"y": y,
-				"shape":
-					shape.duplicate(true)
+				"shape": shape.duplicate(true)
 			}
 
 func remove_item(grid, id, cols, rows):
