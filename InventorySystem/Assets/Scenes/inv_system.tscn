@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dhm3ugcjir1gv"]
+
+[ext_resource type="Script" uid="uid://b53td04nwlake" path="res://Scripts/Inventory/inv_helper.gd" id="1_5yl26"]
+[ext_resource type="Texture2D" uid="uid://cpdne77l3xcr8" path="res://Assets/Images/AurumTileset-Background.png" id="1_m1e4t"]
+[ext_resource type="Script" uid="uid://cvj7lsskensf8" path="res://InventorySystem/howtoadditem.gd" id="1_oqq0v"]
+[ext_resource type="Script" uid="uid://0ekw8vriw2cq" path="res://InventorySystem/inventory.gd" id="2_m1e4t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yl26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqrjc"]
+
+[sub_resource type="GDScript" id="GDScript_oqq0v"]
+script/source = "extends Camera2D
+
+@export var max_shake: float = 1.0
+@export var shake_fade: float = 7.0
+
+var shake_strength:float = 0.0
+# Called when the node enters the scene tree for the first time.
+func trigger_shake() -> void:
+	shake_strength = max_shake
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if shake_strength > 0:
+		shake_strength = lerp(shake_strength,0.0,shake_fade*delta)
+		offset = Vector2(randf_range(-shake_strength,shake_strength),randf_range(-shake_strength,shake_strength))
+"
+
+[node name="InvSystem" type="Node2D" unique_id=290457515]
+script = ExtResource("1_5yl26")
+
+[node name="AurumTilesetBackground" type="Sprite2D" parent="." unique_id=1928066961]
+position = Vector2(54, 101)
+rotation = 3.1415927
+scale = Vector2(10.8648205, 33.655903)
+texture = ExtResource("1_m1e4t")
+
+[node name="Inventory" type="Node" parent="." unique_id=588337381]
+script = ExtResource("1_oqq0v")
+
+[node name="Control" type="Control" parent="." unique_id=655740660]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_m1e4t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=990310268]
+follow_viewport_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer" unique_id=693371668]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control/CanvasLayer/HBoxContainer" unique_id=1941336778]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5yl26")
+
+[node name="MainInvGrid" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/Panel" unique_id=1415508803]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/HBoxContainer" unique_id=124696686]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Panel3" type="Panel" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer" unique_id=934138189]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hqrjc")
+
+[node name="WhatYouHave" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer/Panel3" unique_id=560526766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=184475953 groups=["Camera"]]
+position = Vector2(80, 72)
+script = SubResource("GDScript_oqq0v")

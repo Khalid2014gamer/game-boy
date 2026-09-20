@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://c8ixfvf3kvnoq"]
+
+[ext_resource type="Texture2D" uid="uid://cvls0rit706df" path="res://InventorySystem/Assets/Sheets/Ring-Variant.png" id="1_oirtk"]
+
+[resource]
+atlas = ExtResource("1_oirtk")
+region = Rect2(16, 0, 16, 16)
