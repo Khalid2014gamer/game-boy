@@ -19,7 +19,7 @@ offset_left = -21.0
 offset_top = -9.0
 offset_right = 167.0
 offset_bottom = 154.0
-color = Color(1, 0.9254902, 0.75686276, 1)
+color = Color(0.30980393, 0.23137255, 0.08627451, 1)
 
 [node name="crafting grid" type="Node" parent="." unique_id=1127708432]
 
