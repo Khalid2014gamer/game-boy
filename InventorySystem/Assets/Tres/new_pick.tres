@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://bnpewu8wmonb6"]
+
+[ext_resource type="Texture2D" uid="uid://bdxn4repvh8gu" path="res://InventorySystem/Assets/Sheets/Pick-Variant.png" id="1_8u7pu"]
+
+[resource]
+atlas = ExtResource("1_8u7pu")
+region = Rect2(0, 0, 16, 16)
