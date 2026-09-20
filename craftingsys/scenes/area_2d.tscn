@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://0b8jmyic3nfc"]
+
+[ext_resource type="Script" uid="uid://cktjqcexolgb0" path="res://craftingsys/scripts/craftin_items.gd" id="1_nw0k0"]
+[ext_resource type="Texture2D" uid="uid://bfj7drxjtlppl" path="res://craftingsys/assets/condensedgold.png" id="2_i5ml7"]
+[ext_resource type="Texture2D" uid="uid://xju0qfxdvrk1" path="res://craftingsys/assets/items.png" id="3_5580e"]
+[ext_resource type="Script" uid="uid://dhtv5h6g8fkx8" path="res://craftingsys/scripts/animated_sprite_2d.gd" id="4_i5ml7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdf4k"]
+atlas = ExtResource("2_i5ml7")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa2l1"]
+atlas = ExtResource("3_5580e")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bphau"]
+atlas = ExtResource("3_5580e")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vltef"]
+atlas = ExtResource("2_i5ml7")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st8c5"]
+atlas = ExtResource("3_5580e")
+region = Rect2(0, 32, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbh7e"]
+atlas = ExtResource("3_5580e")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfefq"]
+atlas = ExtResource("3_5580e")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gf3g"]
+atlas = ExtResource("3_5580e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7bee"]
+atlas = ExtResource("3_5580e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84f7n"]
+atlas = ExtResource("3_5580e")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sda5i"]
+atlas = ExtResource("3_5580e")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdc32"]
+atlas = ExtResource("3_5580e")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h25np"]
+atlas = ExtResource("3_5580e")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtghi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdf4k")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa2l1")
+}],
+"loop": 1,
+"name": &"clock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bphau")
+}],
+"loop": 1,
+"name": &"clover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vltef")
+}],
+"loop": 1,
+"name": &"condensed_gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st8c5")
+}],
+"loop": 1,
+"name": &"gold_wings",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbh7e")
+}],
+"loop": 1,
+"name": &"hammer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfefq")
+}],
+"loop": 1,
+"name": &"mining_ring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gf3g")
+}],
+"loop": 1,
+"name": &"new_boots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7bee")
+}],
+"loop": 1,
+"name": &"new_bundle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84f7n")
+}],
+"loop": 1,
+"name": &"new_pickaxe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sda5i")
+}],
+"loop": 1,
+"name": &"old_boots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdc32")
+}],
+"loop": 1,
+"name": &"old_bundle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h25np")
+}],
+"loop": 1,
+"name": &"old_pickaxe",
+"speed": 5.0
+}]
+
+[node name="crafting?" type="Area2D" unique_id=889951703]
+script = ExtResource("1_nw0k0")
+
+[node name="animation" type="AnimatedSprite2D" parent="." unique_id=753220339]
+sprite_frames = SubResource("SpriteFrames_mtghi")
+animation = &"condensed_gold"
+script = ExtResource("4_i5ml7")

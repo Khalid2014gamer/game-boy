@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dh1topsyn2gjg"]
+
+[ext_resource type="Script" uid="uid://bnwqisnsnqan" path="res://craftingsys/scripts/crafting.gd" id="1_jva75"]
+[ext_resource type="Texture2D" uid="uid://b2ql3ww3pkn4c" path="res://craftingsys/assets/cursor.png" id="2_eles3"]
+[ext_resource type="Texture2D" uid="uid://ddn58rlpkocrn" path="res://craftingsys/assets/TinyGold.png" id="3_wcch1"]
+[ext_resource type="Texture2D" uid="uid://bfj7drxjtlppl" path="res://craftingsys/assets/condensedgold.png" id="4_74tp3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x0na5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pff4a"]
+atlas = SubResource("CompressedTexture2D_x0na5")
+region = Rect2(324, 324, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6veh8"]
+atlas = ExtResource("2_eles3")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo1yo"]
+atlas = ExtResource("3_wcch1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0na5"]
+atlas = ExtResource("3_wcch1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arrsk"]
+atlas = ExtResource("4_74tp3")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqjtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pff4a")
+}],
+"loop": 1,
+"name": &" ",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6veh8")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo1yo")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0na5")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arrsk")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}]
+
+[node name="crafting square" type="Area2D" unique_id=193258476]
+script = ExtResource("1_jva75")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=483284237]
+texture_filter = 1
+position = Vector2(1.0000002, -5.9604645e-08)
+scale = Vector2(1.5048281, 1.265625)
+sprite_frames = SubResource("SpriteFrames_yqjtg")
+animation = &"0"

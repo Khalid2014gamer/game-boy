@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dr62gqqqtuorr"]
+
+[ext_resource type="Texture2D" uid="uid://sikh8m1poj1t" path="res://craftingsys/assets/slot.png" id="2_2s7k2"]
+
+[node name="TextureRect" type="TextureRect" unique_id=282220960]
+texture_filter = 3
+custom_minimum_size = Vector2(34, 34)
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("2_2s7k2")
+expand_mode = 1
