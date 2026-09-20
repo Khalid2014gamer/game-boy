@@ -57,6 +57,8 @@ func craft_recipe():
 			])
 			crafted.append(recipe_name)
 			print(crafted)
+			if recipe_name == "condensed_gold":
+				resources[2] +=1
 			temp_resources = [0,0,0]
 			craft = 0
 			recipe_crafting = "0"

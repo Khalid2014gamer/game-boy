@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://0b8jmyic3nfc" path="res://craftingsys/scenes/area_2d.tscn" id="8_gee14"]
 [ext_resource type="FontFile" uid="uid://dcqyrm1gfoxeq" path="res://craftingsys/assets/DescriptionFont.ttf" id="9_0tnpc"]
 [ext_resource type="Script" uid="uid://by7qe1ewkf6ej" path="res://craftingsys/scripts/description.gd" id="10_vtaks"]
+[ext_resource type="AudioStream" uid="uid://bymb2ijg4k1j1" path="res://craftingsys/assets/craftingsongfixed.mp3" id="11_u8vvv"]
+[ext_resource type="Script" uid="uid://qv3pphri6m1t" path="res://craftingsys/scenes/music.gd" id="12_l70q0"]
 
 [node name="game" type="Node2D" unique_id=34844512]
 script = ExtResource("1_uwrxv")
@@ -19,7 +21,7 @@ offset_left = -21.0
 offset_top = -9.0
 offset_right = 167.0
 offset_bottom = 154.0
-color = Color(0.30980393, 0.23137255, 0.08627451, 1)
+color = Color(1, 0.9254902, 0.75686276, 1)
 
 [node name="crafting grid" type="Node" parent="." unique_id=1127708432]
 
@@ -62,10 +64,10 @@ position = Vector2(127, 27)
 position = Vector2(127, 56)
 
 [node name="button4" parent="buttons" unique_id=1863661791 instance=ExtResource("3_lnu2h")]
-position = Vector2(127, 88)
+position = Vector2(127, 85)
 
 [node name="button5" parent="buttons" unique_id=323013888 instance=ExtResource("3_lnu2h")]
-position = Vector2(127, 117)
+position = Vector2(127, 113)
 
 [node name="cursor" parent="." unique_id=321077083 instance=ExtResource("4_lbhrr")]
 position = Vector2(30, 124)
@@ -117,14 +119,21 @@ stream = ExtResource("7_u5sy4")
 
 [node name="crafting?" parent="." unique_id=889951703 instance=ExtResource("8_gee14")]
 texture_filter = 3
-position = Vector2(13, 130)
+position = Vector2(14.000007, 131)
+scale = Vector2(0.8, 0.8)
 
 [node name="Description" type="RichTextLabel" parent="." unique_id=73923854]
-offset_left = 26.0
-offset_top = 119.0
-offset_right = 127.0
-offset_bottom = 143.0
+offset_left = 28.0
+offset_top = 116.0
+offset_right = 129.0
+offset_bottom = 140.0
 theme_override_fonts/normal_font = ExtResource("9_0tnpc")
 bbcode_enabled = true
 scroll_active = false
 script = ExtResource("10_vtaks")
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=2145307899]
+stream = ExtResource("11_u8vvv")
+volume_db = -5.0
+autoplay = true
+script = ExtResource("12_l70q0")
