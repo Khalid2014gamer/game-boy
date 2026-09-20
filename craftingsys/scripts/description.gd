@@ -27,5 +27,7 @@ func _process(delta: float) -> void:
 		text = "[color=#4a3b16][font_size=9]Gold Wings ($30)[/font_size]\n[font_size=7]Allows You to Dash[/font_size][/color]"
 	elif item == "condensed_gold":
 		text = "[color=#4a3b16][font_size=9]Condensed Gold[/font_size]\n[font_size=7]Used to Make Better Items[/font_size][/color]"
+	elif item == "clock":
+		text = "[color=#4a3b16][font_size=9]Gold Clock ( $40 )[/font_size]\n[font_size=7]Allows for More Time[/font_size][/color]"
 	else:
 		text = ""
