@@ -20,8 +20,8 @@ func _pressed() -> void:
 	await get_tree().create_timer(3.0).timeout
 	$GPUParticles2D.emitting = false
 	var new_gold = NEW_GOLD.instantiate()
-	new_gold.global_position = $GoldIMG.global_position
-	get_parent().add_child(new_gold)
+	new_gold.position = $GoldIMG.position
+	add_child(new_gold)
 	print("finished mining!")
 	get_tree().get_first_node_in_group("Player").StopMine()
 	#emit_signal("gold", 1)

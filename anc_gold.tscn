@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bgepdb3kf1ef1" path="res://Assets/Images/TinyGold.png" id="1_7dwls"]
 [ext_resource type="Script" uid="uid://cb6fkbrasdq86" path="res://Scripts/Inventory/gold_sin.gd" id="2_0o2pm"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dwls"]
+radius = 3.0
+height = 8.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dwls"]
 atlas = ExtResource("1_7dwls")
 region = Rect2(16, 0, 16, 16)
@@ -20,6 +24,11 @@ animations = [{
 
 [node name="sin_sample" type="Node2D" unique_id=1841158095]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1869538229]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=878098742 groups=["Items"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=305315922 groups=["Items"]]
+shape = SubResource("CapsuleShape2D_7dwls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1869538229]
 sprite_frames = SubResource("SpriteFrames_1c765")
 script = ExtResource("2_0o2pm")

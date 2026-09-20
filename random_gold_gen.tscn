@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://doqtlqkvupyou" path="res://Scripts/Buttons/gold_value_label.gd" id="17_37cou"]
 [ext_resource type="Texture2D" uid="uid://q3kojgkveoks" path="res://Assets/Images/GoldRock-Tiles.png" id="18_gy01g"]
 [ext_resource type="Script" uid="uid://d1wq63k6qib5x" path="res://Scripts/Inventory/gold_randomizer.gd" id="19_tisot"]
+[ext_resource type="Script" uid="uid://ci0bxhcldsk1w" path="res://MiningSystem/game_storage.gd" id="20_37cou"]
+[ext_resource type="Script" uid="uid://btmro56fig36e" path="res://Scripts/Inventory/gold_killer.gd" id="21_gy01g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bw35w"]
 shader = ExtResource("2_0feld")
@@ -500,6 +502,12 @@ trail_lifetime = 0.06
 trail_sections = 3
 trail_section_subdivisions = 9
 process_material = SubResource("ParticleProcessMaterial_bw35w")
+
+[node name="GameStorage" type="Node" parent="." unique_id=292010978 groups=["GameStorage"]]
+script = ExtResource("20_37cou")
+
+[node name="GoldKiller" type="Node" parent="GameStorage" unique_id=1533672751]
+script = ExtResource("21_gy01g")
 
 [connection signal="body_entered" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Gold/Area2D" to="Gold" method="_on_area_2d_body_exited"]
