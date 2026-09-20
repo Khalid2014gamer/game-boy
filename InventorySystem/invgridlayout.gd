@@ -3,6 +3,8 @@ extends Control
 @onready var canvas = $CanvasLayer
 @onready var main_grid = $CanvasLayer/HBoxContainer/Panel/MainInvGrid
 @onready var have_grid = $CanvasLayer/HBoxContainer/VBoxContainer/Panel3/WhatYouHave
+@onready var inventory_label = $CanvasLayer/Inventory
+@onready var hotbar_label = $CanvasLayer/Hotbar
 
 const SLOT_SIZE = 9
 const GAP = 1
@@ -15,6 +17,7 @@ var have_cols = 5
 var have_rows = 5
 
 var slot_texture = preload("res://Assets/Images/Slots2.png")
+var title_font = preload("res://Assets/Images/GrapeSoda.ttf")
 
 var items = {
 	"new_pickaxe": {
@@ -58,6 +61,8 @@ func _ready():
 	make_slots(main_grid, main_cols * main_rows)
 	make_slots(have_grid, have_cols * have_rows)
 	
+	call_deferred("setup_inventory_labels")
+	
 	selection_layer = Control.new()
 	selection_layer.name = "SelectionLayer"
 	selection_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -66,10 +71,14 @@ func _ready():
 	canvas.add_child(selection_layer)
 	
 	refresh()
-	
+
+	inventory_label.text = "Inventory"
+	hotbar_label.text = "Hotbar"
+
 	canvas.visible = false
-	
+
 	clear_selection_visual()
+	selection_layer.visible = false
 
 func fetch_inv():
 	return main
@@ -104,6 +113,64 @@ func setup_layout():
 	main_panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	have_box.size_flags_horizontal = Control.SIZE_SHRINK_END
 	have_box.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+
+func setup_inventory_labels():
+	inventory_label.reparent(canvas)
+	hotbar_label.reparent(canvas)
+
+	inventory_label.visible = true
+	hotbar_label.visible = true
+
+	inventory_label.modulate.a = 1.0
+	hotbar_label.modulate.a = 1.0
+
+	inventory_label.text = "Inventory"
+	hotbar_label.text = "Hotbar"
+
+	inventory_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hotbar_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+	inventory_label.add_theme_font_size_override("font_size", 8)
+	hotbar_label.add_theme_font_size_override("font_size", 8)
+
+	var inventory_rect = main_grid.get_global_rect()
+	var hotbar_rect = have_grid.get_global_rect()
+
+	inventory_label.size = Vector2(inventory_rect.size.x, 12)
+	hotbar_label.size = Vector2(hotbar_rect.size.x, 12)
+
+	inventory_label.position = Vector2(
+		inventory_rect.position.x,
+		inventory_rect.position.y - 16
+	)
+
+	hotbar_label.position = Vector2(
+		hotbar_rect.position.x,
+		hotbar_rect.position.y - 16
+	)
+
+func position_inventory_labels():
+	inventory_label.text = "Inventory"
+	hotbar_label.text = "Hotbar"
+	
+	inventory_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hotbar_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	inventory_label.size = Vector2(main_grid.size.x, 12)
+	hotbar_label.size = Vector2(have_grid.size.x, 12)
+	
+	var inventory_rect = main_grid.get_global_rect()
+	var hotbar_rect = have_grid.get_global_rect()
+	
+	inventory_label.position = Vector2(
+		inventory_rect.get_center().x - inventory_label.size.x / 2,
+		inventory_rect.position.y - 16
+	)
+	
+	hotbar_label.position = Vector2(
+		hotbar_rect.get_center().x - hotbar_label.size.x / 2,
+		hotbar_rect.position.y - 16
+	)
 
 func make_empty_grid(rows, cols):
 	var grid = []
@@ -391,7 +458,7 @@ func grab_selected_item():
 	holding = true
 	selected_item_id = -1
 	
-	var camera = $Camera2D
+	var camera = get_tree().get_first_node_in_group("Camera")
 	if camera != null:
 		camera.trigger_shake()
 		
@@ -604,7 +671,7 @@ func put_item(grid, name, id, shape, x, y):
 	particle.emitting = true
 
 	get_tree().get_first_node_in_group("Camera").trigger_shake()
-	$Camera2D.trigger_shake()
+
 	for sy in range(shape.size()):
 		for sx in range(shape[sy].size()):
 			if shape[sy][sx] == 0:
