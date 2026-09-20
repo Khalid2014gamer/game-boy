@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://btcgi7dc484u2"]
+
+[ext_resource type="Script" uid="uid://bukqkn340t2mt" path="res://craftingsys/scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dh1topsyn2gjg" path="res://craftingsys/scenes/crafting.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://qnlaeeiew1o2" path="res://craftingsys/scenes/buttons.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cpd7e2ds1ihhf" path="res://craftingsys/scenes/cursor.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dr62gqqqtuorr" path="res://craftingsys/scenes/grid.tscn" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://p1uw6kvo1sfb" path="res://craftingsys/assets/move.mp3" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://lglc28t6lhvc" path="res://craftingsys/assets/select.mp3" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://0b8jmyic3nfc" path="res://craftingsys/scenes/area_2d.tscn" id="8_gee14"]
+[ext_resource type="FontFile" uid="uid://dcqyrm1gfoxeq" path="res://craftingsys/assets/DescriptionFont.ttf" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://by7qe1ewkf6ej" path="res://craftingsys/scripts/description.gd" id="10_vtaks"]
+
+[node name="game" type="Node2D" unique_id=34844512]
+script = ExtResource("1_uwrxv")
+
+[node name="background" type="ColorRect" parent="." unique_id=829890612]
+offset_left = -21.0
+offset_top = -9.0
+offset_right = 167.0
+offset_bottom = 154.0
+color = Color(1, 0.9254902, 0.75686276, 1)
+
+[node name="crafting grid" type="Node" parent="." unique_id=1127708432]
+
+[node name="crafting square" parent="crafting grid" unique_id=193258476 instance=ExtResource("2_yqjtg")]
+position = Vector2(20, 20)
+
+[node name="crafting square2" parent="crafting grid" unique_id=832616516 instance=ExtResource("2_yqjtg")]
+position = Vector2(58, 20)
+
+[node name="crafting square3" parent="crafting grid" unique_id=591227382 instance=ExtResource("2_yqjtg")]
+position = Vector2(96, 20)
+
+[node name="crafting square4" parent="crafting grid" unique_id=388609108 instance=ExtResource("2_yqjtg")]
+position = Vector2(20, 58)
+
+[node name="crafting square5" parent="crafting grid" unique_id=1685373213 instance=ExtResource("2_yqjtg")]
+position = Vector2(59, 58)
+
+[node name="crafting square6" parent="crafting grid" unique_id=788969171 instance=ExtResource("2_yqjtg")]
+position = Vector2(96, 58)
+
+[node name="crafting square7" parent="crafting grid" unique_id=570485348 instance=ExtResource("2_yqjtg")]
+position = Vector2(20, 96)
+
+[node name="crafting square8" parent="crafting grid" unique_id=1175945206 instance=ExtResource("2_yqjtg")]
+position = Vector2(58, 96)
+
+[node name="crafting square9" parent="crafting grid" unique_id=1832332700 instance=ExtResource("2_yqjtg")]
+position = Vector2(96, 96)
+
+[node name="buttons" type="Node" parent="." unique_id=1001332114]
+
+[node name="button" parent="buttons" unique_id=2052419704 instance=ExtResource("3_lnu2h")]
+position = Vector2(127, -2)
+
+[node name="button2" parent="buttons" unique_id=1014929618 instance=ExtResource("3_lnu2h")]
+position = Vector2(127, 27)
+
+[node name="button3" parent="buttons" unique_id=1708738667 instance=ExtResource("3_lnu2h")]
+position = Vector2(127, 56)
+
+[node name="button4" parent="buttons" unique_id=1863661791 instance=ExtResource("3_lnu2h")]
+position = Vector2(127, 88)
+
+[node name="button5" parent="buttons" unique_id=323013888 instance=ExtResource("3_lnu2h")]
+position = Vector2(127, 117)
+
+[node name="cursor" parent="." unique_id=321077083 instance=ExtResource("4_lbhrr")]
+position = Vector2(30, 124)
+
+[node name="grid" type="Node" parent="." unique_id=1260819983]
+
+[node name="GridContainer" type="GridContainer" parent="grid" unique_id=1643635379]
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.21100001
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 81.0
+offset_bottom = 82.616
+columns = 3
+
+[node name="TextureRect" parent="grid/GridContainer" unique_id=282220960 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="grid/GridContainer" unique_id=1483917734 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="grid/GridContainer" unique_id=577685412 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect4" parent="grid/GridContainer" unique_id=720263910 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="grid/GridContainer" unique_id=1640595625 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="grid/GridContainer" unique_id=1775276803 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect7" parent="grid/GridContainer" unique_id=808615636 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect8" parent="grid/GridContainer" unique_id=1718346975 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="TextureRect9" parent="grid/GridContainer" unique_id=756919906 instance=ExtResource("5_iywne")]
+layout_mode = 2
+
+[node name="move" type="AudioStreamPlayer2D" parent="." unique_id=1807813315]
+stream = ExtResource("6_p57ef")
+
+[node name="select" type="AudioStreamPlayer2D" parent="." unique_id=61387423]
+stream = ExtResource("7_u5sy4")
+
+[node name="crafting?" parent="." unique_id=889951703 instance=ExtResource("8_gee14")]
+texture_filter = 3
+position = Vector2(13, 130)
+
+[node name="Description" type="RichTextLabel" parent="." unique_id=73923854]
+offset_left = 26.0
+offset_top = 119.0
+offset_right = 127.0
+offset_bottom = 143.0
+theme_override_fonts/normal_font = ExtResource("9_0tnpc")
+bbcode_enabled = true
+scroll_active = false
+script = ExtResource("10_vtaks")
