@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cpd7e2ds1ihhf"]
 
-[ext_resource type="Texture2D" uid="uid://b2ql3ww3pkn4c" path="res://craftingsys/assets/cursor.png" id="1_1eco6"]
+[ext_resource type="Texture2D" uid="uid://dir5tl2y38dxk" path="res://craftingsys/assets/pixil-frame-1.png" id="1_a5mmp"]
 
 [node name="cursor" type="Area2D" unique_id=321077083]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=25510262]
 texture_filter = 3
-position = Vector2(-2.999998, 18.000002)
+position = Vector2(-10.999999, 18.000002)
 scale = Vector2(1.3020834, 1.3020834)
-texture = ExtResource("1_1eco6")
+texture = ExtResource("1_a5mmp")

@@ -21,9 +21,9 @@ region = Rect2(160, 0, 16, 16)
 atlas = ExtResource("2_i5ml7")
 region = Rect2(0, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_st8c5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw0k0"]
 atlas = ExtResource("3_5580e")
-region = Rect2(0, 32, 48, 16)
+region = Rect2(0, 32, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbh7e"]
 atlas = ExtResource("3_5580e")
@@ -93,7 +93,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_st8c5")
+"texture": SubResource("AtlasTexture_nw0k0")
 }],
 "loop": 1,
 "name": &"gold_wings",
@@ -168,6 +168,7 @@ animations = [{
 script = ExtResource("1_nw0k0")
 
 [node name="animation" type="AnimatedSprite2D" parent="." unique_id=753220339]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_mtghi")
 animation = &"condensed_gold"
 script = ExtResource("4_i5ml7")
