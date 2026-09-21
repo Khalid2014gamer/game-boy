@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b53td04nwlake" path="res://Scripts/Inventory/inv_helper.gd" id="1_5yl26"]
 [ext_resource type="Texture2D" uid="uid://cpdne77l3xcr8" path="res://Assets/Images/AurumTileset-Background.png" id="1_m1e4t"]
 [ext_resource type="Script" uid="uid://cvj7lsskensf8" path="res://InventorySystem/howtoadditem.gd" id="1_oqq0v"]
-[ext_resource type="Script" uid="uid://0ekw8vriw2cq" path="res://InventorySystem/inventory.gd" id="2_m1e4t"]
+[ext_resource type="Script" uid="uid://0ekw8vriw2cq" path="res://InventorySystem/invgridlayout.gd" id="2_m1e4t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yl26"]
 

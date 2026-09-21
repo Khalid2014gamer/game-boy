@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdxn4repvh8gu"
-path="res://.godot/imported/Pick-Variant.png-e25ee25853bc7aeeaff7609f0495ca95.ctex"
+uid="uid://brxe8ldimhx4m"
+path="res://.godot/imported/AurumTileset-Background2.png-1cac4a09724c4c8814a9350c39720c5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sheets/Pick-Variant.png"
-dest_files=["res://.godot/imported/Pick-Variant.png-e25ee25853bc7aeeaff7609f0495ca95.ctex"]
+source_file="res://Assets/Images/AurumTileset-Background2.png"
+dest_files=["res://.godot/imported/AurumTileset-Background2.png-1cac4a09724c4c8814a9350c39720c5d.ctex"]
 
 [params]
 

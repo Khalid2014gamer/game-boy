@@ -12,5 +12,5 @@ extends Node
 	#pass
 	##get_tree().get_first_node_in_group("Player").kill()
 func _countdown() -> void:
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(10).timeout
 	get_tree().get_first_node_in_group("Player").kill()

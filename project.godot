@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Boy"
-run/main_scene="uid://btcgi7dc484u2"
+run/main_scene="uid://c0yppa2aj4hde"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [display]
