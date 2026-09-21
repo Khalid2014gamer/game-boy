@@ -1,23 +1,45 @@
 extends Node2D
-
+const SELLABLE_ITEMS = {
+	"new_pickaxe": 30,
+	"old_pickaxe": 60,
+	"clock": 40,
+	"clover": 100,
+	"new_bundle": 20,
+	"gold_wings": 300,
+	"new_boots": 15,
+	"old_boots": 40,
+	"old_bundle": 40,
+	"hammer": 50,
+	"mining_ring": 200
+}
 var WINDOW_INDEX = 0
 var SCORE = 0
+@onready var move: AudioStreamPlayer2D = $move
 @onready var WINDOW_MAX = $windows.get_child_count()
-var ITEMS = ["2 Gold Pickaxes", "Five Gold Pickaxes", "HUh", "What", "ye", "math","igowallah","5","tbh", "idk"]
-var ITEM_VALUES = [10, 20, 30, 40, 5, 6, 8 , 9, 7, 200]
-func _ready():
-	WINDOW_MAX -=1
-	print(WINDOW_MAX)
+var ITEMS = []
+var player_inv = ["3", "clover"]
+var ITEM_VALUES = []
 
+func create_shop_items():
+	var available_items = SELLABLE_ITEMS.keys()
+	for i in range(6):
+		var random_item = available_items.pick_random()
+		var item_value = SELLABLE_ITEMS[random_item]
+		ITEMS.append(random_item)
+		ITEM_VALUES.append(item_value)
+		available_items.erase(random_item)
+	print(ITEMS)
+	print(ITEM_VALUES)
+	
+func _ready():
+	create_shop_items()
+	print(WINDOW_MAX)
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_up"):
+	if Input.is_action_just_pressed("auction_move_up"):
 		if WINDOW_INDEX !=0:	
 			WINDOW_INDEX -=1
-			print(WINDOW_INDEX)
-	elif Input.is_action_just_pressed("move_down"):
+		move.play()
+	elif Input.is_action_just_pressed("auction_move_down"):
 		if !(WINDOW_INDEX +1 == WINDOW_MAX):
 			WINDOW_INDEX +=1
-			print(WINDOW_INDEX)
-	elif Input.is_action_just_pressed("select"):
-		SCORE += ITEM_VALUES[WINDOW_INDEX]
-		print(SCORE)
+		move.play()
