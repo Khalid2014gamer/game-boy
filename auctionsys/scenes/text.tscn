@@ -1,27 +1,164 @@
 [gd_scene format=3 uid="uid://b552khhs6yhc0"]
 
-[ext_resource type="Script" uid="uid://cl0wj0sws4xxe" path="res://scripts/text.gd" id="1_wwb76"]
-[ext_resource type="Script" uid="uid://bivjqp7l3ap7y" path="res://scripts/item.gd" id="2_t50sv"]
-[ext_resource type="Script" uid="uid://cvl188linc05w" path="res://scripts/number.gd" id="3_qooke"]
+[ext_resource type="Script" uid="uid://cl0wj0sws4xxe" path="res://auctionsys/scripts/text.gd" id="1_wwb76"]
+[ext_resource type="FontFile" uid="uid://cmoab1brvrbyi" path="res://auctionsys/assets/DescriptionFont.ttf" id="2_7qyid"]
+[ext_resource type="Script" uid="uid://cvl188linc05w" path="res://auctionsys/scripts/number.gd" id="3_qooke"]
+[ext_resource type="Script" uid="uid://dss5nr15kmjpc" path="res://auctionsys/scripts/item_image.gd" id="4_7qyid"]
+[ext_resource type="Texture2D" uid="uid://dl4ntvf41fyya" path="res://auctionsys/assets/spritesheet.png" id="4_nfjwv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qyid"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygom1"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q22i8"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(0, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqur5"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5q3b"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p50t"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmf0j"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vwnl"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_715jp"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar3n4"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc7n5"]
+atlas = ExtResource("4_nfjwv")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtghi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qyid")
+}],
+"loop": 1,
+"name": &"clock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygom1")
+}],
+"loop": 1,
+"name": &"clover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q22i8")
+}],
+"loop": 1,
+"name": &"gold_wings",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqur5")
+}],
+"loop": 1,
+"name": &"hammer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5q3b")
+}],
+"loop": 1,
+"name": &"mining_ring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p50t")
+}],
+"loop": 1,
+"name": &"new_boots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmf0j")
+}],
+"loop": 1,
+"name": &"new_bundle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vwnl")
+}],
+"loop": 1,
+"name": &"new_pickaxe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_715jp")
+}],
+"loop": 1,
+"name": &"old_boots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar3n4")
+}],
+"loop": 1,
+"name": &"old_bundle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc7n5")
+}],
+"loop": 1,
+"name": &"old_pickaxe",
+"speed": 5.0
+}]
 
 [node name="text" type="Node2D" unique_id=1735379187]
 z_index = 10
 position = Vector2(-46, -10)
 script = ExtResource("1_wwb76")
 
-[node name="item" type="RichTextLabel" parent="." unique_id=883377464]
-offset_left = -84.0
-offset_top = -10.0
-offset_right = 403.0
-offset_bottom = 20.0
-fit_content = true
-scroll_active = false
-script = ExtResource("2_t50sv")
-
 [node name="number" type="RichTextLabel" parent="." unique_id=1755304105]
-offset_left = -71.0
-offset_top = -16.0
-offset_right = 160.0
-offset_bottom = 35.0
+offset_left = 95.0
+offset_top = 34.0
+offset_right = 150.0
+offset_bottom = 51.0
+theme_override_fonts/normal_font = ExtResource("2_7qyid")
+bbcode_enabled = true
 scroll_active = false
 script = ExtResource("3_qooke")
+
+[node name="item_image" type="AnimatedSprite2D" parent="." unique_id=1228712414]
+texture_filter = 3
+position = Vector2(46, 10)
+sprite_frames = SubResource("SpriteFrames_mtghi")
+animation = &"mining_ring"
+script = ExtResource("4_7qyid")

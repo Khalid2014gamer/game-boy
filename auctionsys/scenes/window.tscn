@@ -1,12 +1,78 @@
 [gd_scene format=3 uid="uid://23a6g5sxo016"]
 
-[ext_resource type="Script" uid="uid://bkd5xbrkmybq7" path="res://scripts/window.gd" id="1_to7fh"]
-[ext_resource type="Texture2D" uid="uid://dn2bjigcl1715" path="res://assets/window.png" id="2_qvkcj"]
+[ext_resource type="Script" uid="uid://bkd5xbrkmybq7" path="res://auctionsys/scripts/window.gd" id="1_to7fh"]
+[ext_resource type="Texture2D" uid="uid://do75d8u8luoto" path="res://auctionsys/assets/pixilart-sprite (3).png" id="2_dpk8p"]
+[ext_resource type="Texture2D" uid="uid://cteteyyedyk3j" path="res://auctionsys/assets/pixilart-sprite (4).png" id="3_v6jtn"]
+[ext_resource type="AudioStream" uid="uid://dualwnocbb3d6" path="res://auctionsys/assets/sell.mp3" id="4_2gopq"]
+[ext_resource type="AudioStream" uid="uid://j3b0c8dt1xkd" path="res://auctionsys/assets/reject.mp3" id="5_y5ibl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpk8p"]
+atlas = ExtResource("2_dpk8p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6jtn"]
+atlas = ExtResource("2_dpk8p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gopq"]
+atlas = ExtResource("3_v6jtn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5ibl"]
+atlas = ExtResource("3_v6jtn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtghi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpk8p")
+}],
+"loop": 1,
+"name": &"_no_trade",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6jtn")
+}],
+"loop": 1,
+"name": &"_yes_trade",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gopq")
+}],
+"loop": 1,
+"name": &"selected_no_trade",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5ibl")
+}],
+"loop": 1,
+"name": &"selected_yes_trade",
+"speed": 5.0
+}]
 
 [node name="window" type="Area2D" unique_id=1413406394]
 script = ExtResource("1_to7fh")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=51703680]
-position = Vector2(292.00003, 121)
-scale = Vector2(0.5407407, 0.52037036)
-texture = ExtResource("2_qvkcj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1155903458]
+texture_filter = 3
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(1.7269386, 1.6618828)
+sprite_frames = SubResource("SpriteFrames_mtghi")
+animation = &"selected_no_trade"
+
+[node name="select" type="AudioStreamPlayer2D" parent="." unique_id=2141747845]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(1.7269386, 1.6618828)
+stream = ExtResource("4_2gopq")
+volume_db = 3.0
+
+[node name="reject" type="AudioStreamPlayer2D" parent="." unique_id=1255246654]
+stream = ExtResource("5_y5ibl")
+volume_db = 4.0
