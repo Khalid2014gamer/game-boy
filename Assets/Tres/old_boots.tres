@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://p2v7712u74pr"]
+
+[ext_resource type="Texture2D" uid="uid://bhxxh5umk5nvh" path="res://InventorySystem/Assets/Sheets/Boots-Variant.png" id="1_t8qxf"]
+
+[resource]
+atlas = ExtResource("1_t8qxf")
+region = Rect2(16, 16, 16, 16)
