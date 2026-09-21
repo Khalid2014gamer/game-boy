@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b552khhs6yhc0"]
 
 [ext_resource type="Script" uid="uid://cl0wj0sws4xxe" path="res://auctionsys/scripts/text.gd" id="1_wwb76"]
-[ext_resource type="FontFile" uid="uid://cmoab1brvrbyi" path="res://auctionsys/assets/DescriptionFont.ttf" id="2_7qyid"]
+[ext_resource type="FontFile" uid="uid://c87imn2pmxnbg" path="res://Assets/Images/GrapeSoda.ttf" id="2_7qyid"]
 [ext_resource type="Script" uid="uid://cvl188linc05w" path="res://auctionsys/scripts/number.gd" id="3_qooke"]
 [ext_resource type="Script" uid="uid://dss5nr15kmjpc" path="res://auctionsys/scripts/item_image.gd" id="4_7qyid"]
 [ext_resource type="Texture2D" uid="uid://dl4ntvf41fyya" path="res://auctionsys/assets/spritesheet.png" id="4_nfjwv"]
@@ -152,7 +152,9 @@ offset_top = 34.0
 offset_right = 150.0
 offset_bottom = 51.0
 theme_override_fonts/normal_font = ExtResource("2_7qyid")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
+text = "a"
 scroll_active = false
 script = ExtResource("3_qooke")
 

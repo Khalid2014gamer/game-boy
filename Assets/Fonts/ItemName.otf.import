@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cge8jt4qebrvr"
-path="res://.godot/imported/ItemName.otf-4abd1295673274091f73717344bd464d.fontdata"
+path="res://.godot/imported/ItemName.otf-1d9d2adc182fe5f61e2fdee1c493829e.fontdata"
 
 [deps]
 
-source_file="res://InventorySystem/Assets/Fonts/ItemName.otf"
-dest_files=["res://.godot/imported/ItemName.otf-4abd1295673274091f73717344bd464d.fontdata"]
+source_file="res://Assets/Fonts/ItemName.otf"
+dest_files=["res://.godot/imported/ItemName.otf-1d9d2adc182fe5f61e2fdee1c493829e.fontdata"]
 
 [params]
 
