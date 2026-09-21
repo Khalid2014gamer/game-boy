@@ -10,6 +10,7 @@ var mining = false
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera")
 @onready var gold_inv: Array = []
 @onready var dis = false
+@onready var dead = false
 @onready var gs = get_tree().get_first_node_in_group("GameStorage")
 func _physics_process(delta: float) -> void:
 	if dis == true:
@@ -57,7 +58,8 @@ func _input(event):
 	if event.is_action_pressed("inventory"):
 		if dis:
 			dis = false
-			set_physics_process(true)
+			if dead == false:
+				set_physics_process(true)
 		else:
 			dis = true
 func update_animation(input_dir: Vector2) -> void:
@@ -76,6 +78,8 @@ func update_animation(input_dir: Vector2) -> void:
 			$Footstep.stop()
 			animated_sprite.play("Idle")
 func kill() -> void:
+	dis = true
+	dead = true
 	set_physics_process(false)
 	velocity = Vector2.ZERO
 	
