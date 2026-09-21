@@ -17,6 +17,7 @@ func _ready():
 	add_to_group("inventory")
 	
 	grid = GridScript.new()
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	selection = SelectionScript.new()
 	selection.setup(self)
@@ -128,8 +129,10 @@ func set_player_camera_enabled(enabled):
 
 func open_inventory():
 	canvas.visible = true
-	$Camera2D.enabled = true
+	%Camera2D.enabled = true
 	set_player_camera_enabled(false)
+	
+	%InventoryBG.visible = true
 	selection.selected_item_id = -1
 	selection.selected_item_grid = selection.current_grid
 	selection.selected_cell = Vector2i(0, 0)
@@ -140,8 +143,10 @@ func close_inventory():
 	if selection.holding:
 		selection.put_back()
 	canvas.visible = false
-	$Camera2D.enabled = false
+	%Camera2D.enabled = false
 	set_player_camera_enabled(true)
+	
+	%InventoryBG.visible = false
 	selection.selected_item_id = -1
 	selection.selection_visible = false
 	visuals.update_selection_visual()

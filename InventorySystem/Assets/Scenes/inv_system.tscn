@@ -29,9 +29,11 @@ func _process(delta: float) -> void:
 [node name="InvSystem" type="Node2D" unique_id=290457515]
 script = ExtResource("1_5yl26")
 
-[node name="AurumTilesetBackground" type="Sprite2D" parent="." unique_id=1928066961]
+[node name="InventoryBG" type="Sprite2D" parent="." unique_id=1928066961]
+unique_name_in_owner = true
+visible = false
 position = Vector2(54, 101)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(10.8648205, 33.655903)
 texture = ExtResource("1_m1e4t")
 
@@ -43,6 +45,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 script = ExtResource("2_m1e4t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=990310268]
@@ -81,5 +84,6 @@ theme_override_constants/v_separation = 4
 columns = 5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=184475953 groups=["Camera"]]
+unique_name_in_owner = true
 position = Vector2(80, 72)
 script = SubResource("GDScript_oqq0v")
