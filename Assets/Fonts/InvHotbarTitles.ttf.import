@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bvlhebukea65f"
-path="res://.godot/imported/InvHotbarTitles.ttf-40d913757881ff35391c71888a38b743.fontdata"
+path="res://.godot/imported/InvHotbarTitles.ttf-830e7cd9ba57cd66ad7a8b4a10254067.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/InvHotbarTitles.ttf"
-dest_files=["res://.godot/imported/InvHotbarTitles.ttf-40d913757881ff35391c71888a38b743.fontdata"]
+source_file="res://InventorySystem/Assets/Fonts/InvHotbarTitles.ttf"
+dest_files=["res://.godot/imported/InvHotbarTitles.ttf-830e7cd9ba57cd66ad7a8b4a10254067.fontdata"]
 
 [params]
 
