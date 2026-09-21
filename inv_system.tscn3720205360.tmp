@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dhm3ugcjir1gv"]
+
+[ext_resource type="Script" uid="uid://cvj7lsskensf8" path="res://InventorySystem/howtoadditem.gd" id="1_oqq0v"]
+[ext_resource type="Script" uid="uid://0ekw8vriw2cq" path="res://InventorySystem/invgridlayout.gd" id="2_m1e4t"]
+[ext_resource type="Texture2D" uid="uid://comeqbb8nkjyj" path="res://Assets/Images/Pick-Variant.png" id="3_m1e4t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yl26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqrjc"]
+
+[node name="InvSystem" type="Node2D" unique_id=290457515]
+
+[node name="Inventory" type="Node" parent="." unique_id=588337381]
+script = ExtResource("1_oqq0v")
+
+[node name="Control" type="Control" parent="." unique_id=655740660]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_m1e4t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=990310268]
+follow_viewport_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer" unique_id=693371668]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control/CanvasLayer/HBoxContainer" unique_id=1941336778]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5yl26")
+
+[node name="MainInvGrid" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/Panel" unique_id=1415508803]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/HBoxContainer" unique_id=124696686]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Panel3" type="Panel" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer" unique_id=934138189]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hqrjc")
+
+[node name="WhatYouHave" type="GridContainer" parent="Control/CanvasLayer/HBoxContainer/VBoxContainer/Panel3" unique_id=560526766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 5
+
+[node name="PickVariant" type="Sprite2D" parent="." unique_id=1536294260]
+position = Vector2(22, 17)
+texture = ExtResource("3_m1e4t")
