@@ -129,7 +129,7 @@ func set_player_camera_enabled(enabled):
 
 func open_inventory():
 	canvas.visible = true
-	%Camera2D.enabled = true
+	$Camera2D.enabled = true
 	set_player_camera_enabled(false)
 	
 	%InventoryBG.visible = true
