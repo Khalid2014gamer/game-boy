@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://mjtvmoc30x54"]
+
+[ext_resource type="Texture2D" uid="uid://q3kojgkveoks" path="res://Assets/Images/GoldRock-Tiles.png" id="1_14tl8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
+atlas = ExtResource("1_14tl8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkxr6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4d3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=827010769]
+
+[node name="Rock" type="AnimatedSprite2D" parent="." unique_id=2111468841]
+sprite_frames = SubResource("SpriteFrames_dkxr6")
