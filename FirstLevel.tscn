@@ -483,7 +483,6 @@ speed_scale = 0.75
 script = ExtResource("8_3fbyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1724458099]
-visible = false
 material = SubResource("ShaderMaterial_6xqcn")
 position = Vector2(18, 140)
 scale = Vector2(1, 1.419)

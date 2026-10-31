@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://cmp5jigjw7r26"]
 
 [ext_resource type="Texture2D" uid="uid://bgepdb3kf1ef1" path="res://Assets/Images/TinyGold.png" id="1_u6jdr"]
-[ext_resource type="Script" uid="uid://cb6fkbrasdq86" path="res://Scripts/Inventory/gold_sin.gd" id="2_qgoxo"]
+[ext_resource type="Script" uid="uid://bqkavyipic33k" path="res://gravitysin.gd" id="1_u7nuf"]
+[ext_resource type="Shader" uid="uid://cr28w6ytxwiji" path="res://shine.gdshader" id="2_hsqmg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7nuf"]
 radius = 3.0
 height = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xclv"]
+shader = ExtResource("2_hsqmg")
+shader_parameter/band_color = Color(0.941, 0.655, 0.31, 1)
+shader_parameter/band_thickness = 0.09999999776481
+shader_parameter/band_intensity = 1.24999997206
+shader_parameter/speed = 0.65999998897327
+shader_parameter/direction = 0
+shader_parameter/offset = 0.0
+shader_parameter/blend_mode = 0
+shader_parameter/edge_softness = 0.062000002945
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_or5tp"]
 atlas = ExtResource("1_u6jdr")
@@ -25,10 +37,11 @@ animations = [{
 [node name="sin_sample" type="Node2D" unique_id=1841158095]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=434616345 groups=["Items"]]
+script = ExtResource("1_u7nuf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1846333330 groups=["Items"]]
 shape = SubResource("CapsuleShape2D_u7nuf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1869538229 groups=["Items"]]
+material = SubResource("ShaderMaterial_3xclv")
 sprite_frames = SubResource("SpriteFrames_1c765")
-script = ExtResource("2_qgoxo")
