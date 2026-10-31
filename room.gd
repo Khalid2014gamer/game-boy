@@ -312,7 +312,6 @@ func spawn_gold() -> void:
 
 		gold.position = floor_layer.map_to_local(cell)
 
-
 # --------------------------------------------------
 # ROOM PROGRESSION
 # --------------------------------------------------
@@ -322,6 +321,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 		return
 
 	if body.is_in_group("Player"):
+		$GoldSeller.SellGold()
 		changing_room = true
 		room_number += 1
 		room_completed.emit()
